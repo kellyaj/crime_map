@@ -1,0 +1,8 @@
+.map-container {
+  width: 1280px;
+  height: 800px;
+}
+.map-canvas {
+  height: 100%;
+  width: 100%;
+}
