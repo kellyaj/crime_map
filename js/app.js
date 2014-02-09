@@ -36,3 +36,10 @@ function initialize() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+var crimes = new Crimes();
+crimes.fetch({
+  success: function(data) {
+    console.log(crimes);
+  }
+});
