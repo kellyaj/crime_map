@@ -5,8 +5,15 @@ var InfoView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html("<h1>Hello</h1>")
+    var template = _.template("<h1> <%= primary_description %></h1>");
+    this.$el.html(template(this.displayData(this.crime)))
     return this;
+  },
+
+  displayData: function(model) {
+    return {
+      "primary_description": model.get('_primary_decsription')
+    }
   }
 
 });

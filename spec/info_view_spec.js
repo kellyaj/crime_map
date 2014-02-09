@@ -1,6 +1,6 @@
 describe('infoView', function() {
 
-  it("renders with crime info", function () {
+  it("renders with basic crime info", function () {
     var fakeCrime = {
       _iucr: "0486",
       _location_description: "APARTMENT",
@@ -17,7 +17,8 @@ describe('infoView', function() {
       x_coordinate: "1138757",
       y_coordinate: "1910703",
     };
-    var view = new InfoView({crime: fakeCrime});
+    crimeModel = new Backbone.Model(fakeCrime);
+    var view = new InfoView({crime: crimeModel});
     view.render();
 
     expect(view.$el.html()).toContain("ARSON");
