@@ -6,7 +6,7 @@ var InfoView = Backbone.View.extend({
 
   render: function() {
     var template = _.template(
-                  "<h1> <%= primary_description %></h1><h2> <%= secondary_description %></h2><h3> <%= location_description %> </h3>"
+                  "<h1> <%= primary_type %></h1><h2> <%= description %></h2><h3> <%= location_description %> </h3><img src=<%= streetviewUrl %>>"
                   );
     this.$el.html(template(this.displayData(this.crime)))
     return this;
@@ -14,10 +14,15 @@ var InfoView = Backbone.View.extend({
 
   displayData: function(model) {
     return {
-      "primary_description": model.get('_primary_decsription'),
-      "secondary_description": model.get('_secondary_description'),
-      "location_description": model.get('_location_description')
+      "primary_type": model.get('primary_type'),
+      "description": model.get('description'),
+      "location_description": model.get('location_description'),
+      "streetviewUrl": this.streetviewUrl()
     }
+  },
+
+  streetviewUrl: function() {
+    return "http://maps.googleapis.com/maps/api/streetview?size=300x300&location=" + this.crime.get('latitude') + "," + this.crime.get('longitude') + "&fov=90&heading=235&pitch=10&sensor=false"
   }
 
 });
