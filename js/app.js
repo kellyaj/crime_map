@@ -11,7 +11,6 @@ function initialize() {
   var plong = -87.7232068260961;
 
   var place = new google.maps.LatLng(41.78948420770715, -87.7232068260961)
-  var place1 = new google.maps.LatLng(41.736380815144884, -87.62763512088614)
 
   var marker = new google.maps.Marker({
     position: place,
@@ -24,15 +23,7 @@ function initialize() {
     content: "<h1>Motor Vehicle Theft</h1><h2>AUTOMOBILE</h2><img src='" + streetviewUrl + "'>"
   });
 
-  var marker1 = new google.maps.Marker({
-    position: place1,
-    map: map,
-    title: "thing"
-  });
 
-  google.maps.event.addListener(marker1, "click", function() {
-    infowindow.open(map, marker1);
-  });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -40,6 +31,19 @@ google.maps.event.addDomListener(window, 'load', initialize);
 var crimes = new Crimes();
 crimes.fetch({
   success: function(data) {
-    console.log(crimes);
+    var place1 = new google.maps.LatLng(41.736380815144884, -87.62763512088614)
+    var marker1 = new google.maps.Marker({
+      position: place1,
+      map: map,
+      title: "thing"
+    });
+    firstCrime = crimes.models[0];
+    crimeView = new InfoView({crime: firstCrime});
+    var testWindow = new google.maps.InfoWindow({
+      content: crimeView.render().$el.html()
+    });
+    google.maps.event.addListener(marker1, "click", function() {
+      testWindow.open(map, marker1);
+    });
   }
 });
