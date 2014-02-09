@@ -22,6 +22,8 @@ describe('infoView', function() {
     view.render();
 
     expect(view.$el.html()).toContain("ARSON");
+    expect(view.$el.html()).toContain("IT GOT HOT");
+    expect(view.$el.html()).toContain("APARTMENT");
   });
 
 });
