@@ -3,6 +3,8 @@
   "src_files": [
     "js/vendor/jquery-1.10.2.min.js",
     "js/vendor/underscore.js",
+    "js/vendor/backbone.js",
+    "js/info_view.js",
     "spec/**/*.js"
   ]
 }
