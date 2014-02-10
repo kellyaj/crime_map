@@ -39,6 +39,27 @@ describe('infoView', function() {
     expect(view.$el.html()).toContain("RESIDENCE");
   });
 
+  it("displays arrest status", function () {
+    crimeModel.set('arrest', false);
+    var view = new InfoView({crime: crimeModel});
+
+    view.render();
+
+    expect(view.$el.html()).toContain("NO ARREST");
+  });
+
+  it("formats arrest data for display when there was an arrest", function () {
+    crimeModel.set('arrest', true);
+    var view = new InfoView({crime: crimeModel});
+    expect(view.formatArrestData()).toEqual("ARREST MADE");
+  });
+
+  it("formats arrest data for display when no arrest", function () {
+    crimeModel.set('arrest', false);
+    var view = new InfoView({crime: crimeModel});
+    expect(view.formatArrestData()).toEqual("NO ARREST");
+  });
+
   it("creates a streetviewUrl from the lat/long", function () {
     var view = new InfoView({crime: crimeModel});
     long = crimeModel.get('longitude');
