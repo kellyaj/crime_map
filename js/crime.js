@@ -7,6 +7,7 @@ var Crime = Backbone.Model.extend({
       map: map,
       title: this.get('primary_description')
     });
+    return this.marker;
   }
 
 });
