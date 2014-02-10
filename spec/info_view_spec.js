@@ -51,13 +51,13 @@ describe('infoView', function() {
   it("formats arrest data for display when there was an arrest", function () {
     crimeModel.set('arrest', true);
     var view = new InfoView({crime: crimeModel});
-    expect(view.formatArrestData()).toEqual("ARREST MADE");
+    expect(view.formatArrestData()).toEqual('<div class="arrest-made">ARREST MADE</div>');
   });
 
   it("formats arrest data for display when no arrest", function () {
     crimeModel.set('arrest', false);
     var view = new InfoView({crime: crimeModel});
-    expect(view.formatArrestData()).toEqual("NO ARREST");
+    expect(view.formatArrestData()).toEqual('<div class="no-arrest">NO ARREST</div>');
   });
 
   it("creates a streetviewUrl from the lat/long", function () {

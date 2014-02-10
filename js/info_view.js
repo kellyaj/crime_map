@@ -6,7 +6,7 @@ var InfoView = Backbone.View.extend({
 
   render: function() {
     var template = _.template(
-                  "<h1> <%= primary_type %></h1><h2> <%= description %></h2><h3> <%= location_description %> - <%= arrest_status %> </h3><img src=<%= streetviewUrl %>>"
+                  "<h1> <%= primary_type %></h1><h2> <%= description %></h2><h3> <%= location_description %> <%= arrest_status %></h3> </h3><img src=<%= streetviewUrl %>>"
                   );
     this.$el.html(template(this.displayData(this.crime)))
     return this;
@@ -28,9 +28,9 @@ var InfoView = Backbone.View.extend({
 
   formatArrestData: function() {
     if (this.crime.get('arrest')) {
-      return "ARREST MADE";
+      return '<div class="arrest-made">ARREST MADE</div>';
     } else {
-      return "NO ARREST";
+      return '<div class="no-arrest">NO ARREST</div>';
     }
   },
 
