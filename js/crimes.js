@@ -1,4 +1,4 @@
-var limit = "5";
+var limit = "15";
 var rangeString = "$limit= " + limit + "&$offset=0";
 var sheet = "qnmj-8ku6"
 
