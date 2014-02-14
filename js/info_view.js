@@ -4,11 +4,11 @@ var InfoView = Backbone.View.extend({
     this.crime = options.crime;
   },
 
+  template: JST['js/templates/info_view.ejs'],
+
   render: function() {
-    var template = _.template(
-                  "<h1> <%= primary_type %></h1><h2> <%= description %></h2><h3> <%= location_description %> <%= arrest_status %></h3> </h3><img src=<%= streetviewUrl %>>"
-                  );
-    this.$el.html(template(this.displayData(this.crime)))
+
+    this.$el.html(this.template(this.displayData(this.crime)))
     return this;
   },
 
