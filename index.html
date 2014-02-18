@@ -6,6 +6,25 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
   </head>
   <body>
+    <div>
+
+      <label> Number of incidents to display:
+        <select data-id="incident-count">
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+          <option>200</option>
+        </select>
+      </label>
+      <label> Incident type:
+        <select data-id="incident-type">
+          <option>All</option>
+          <option>Homicide</option>
+          <option>Theft</option>
+          <option>Something</option>
+        </select>
+      </label>
+    </div>
     <div class="map-container">
       <div class="map-canvas" data-id="map-canvas"></div>
     </div>

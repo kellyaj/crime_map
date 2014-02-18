@@ -1,4 +1,5 @@
 var map;
+var crimes;
 
 function initialize() {
   var mapOptions = {
@@ -10,7 +11,7 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-var crimes = new Crimes();
+crimes = new Crimes();
 crimes.fetch({
   success: function(data) {
     _.each(crimes.models, function(crime) {
