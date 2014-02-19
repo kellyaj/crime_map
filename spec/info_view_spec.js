@@ -28,7 +28,7 @@ describe('infoView', function() {
     "latitude" : "41.79185339253908",
     "district" : "008"
   };
-  var crimeModel = new Backbone.Model(fakeCrime);
+  var crimeModel = new Crime(fakeCrime);
 
   it("renders with basic crime info", function () {
     var view = new InfoView({crime: crimeModel});
@@ -37,6 +37,7 @@ describe('infoView', function() {
     expect(view.$el.html()).toContain("ARSON");
     expect(view.$el.html()).toContain("IT GOT HOT");
     expect(view.$el.html()).toContain("RESIDENCE");
+    expect(view.$el.html()).toContain("02/01/2014");
   });
 
   it("displays arrest status", function () {

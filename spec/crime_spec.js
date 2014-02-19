@@ -36,10 +36,16 @@ describe('crime model', function() {
   fakeGoogle.maps.Marker = function(){};
 
   it("generates a google maps marker based on its information", function () {
-    var crime = new Crime("fake map", fakeCrime);
+    var crime = new Crime(fakeCrime);
 
     crime.generateMarker(fakeGoogle);
 
     expect(crime.marker).toBeDefined();
+  });
+
+  it("formats the date into human readable format", function () {
+    var crime = new Crime(fakeCrime);
+
+    expect(crime.formattedDate()).toEqual("02/01/2014");
   });
 });

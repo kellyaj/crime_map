@@ -8,6 +8,12 @@ var Crime = Backbone.Model.extend({
       title: this.get('primary_description')
     });
     return this.marker;
-  }
+  },
+
+  formattedDate: function() {
+    var date = this.get('date').split("T")[0];
+    var dateSplit = date.split("-");
+    return [dateSplit[1], dateSplit[2], dateSplit[0]].join("/");
+  },
 
 });
