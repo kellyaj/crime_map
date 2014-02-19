@@ -1,13 +1,14 @@
 .map-container {
   display: inline-block;
   height: 800px;
-  width: 70%;
+  width: 60%;
 }
 
 .info-container {
   display: inline-block;
   height: 800px;
-  width: 29%;
+  width: 30%;
+  vertical-align: top;
 }
 .map-canvas {
   height: 100%;
