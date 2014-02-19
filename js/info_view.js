@@ -23,7 +23,7 @@ var InfoView = Backbone.View.extend({
   },
 
   streetviewUrl: function() {
-    return "http://maps.googleapis.com/maps/api/streetview?size=300x300&location=" + this.crime.get('latitude') + "," + this.crime.get('longitude') + "&fov=90&heading=235&pitch=10&sensor=false"
+    return "http://maps.googleapis.com/maps/api/streetview?size=300x300&location=" + this.crime.get('latitude') + "," + this.crime.get('longitude') + "&fov=90&pitch=10&sensor=false"
   },
 
   formatArrestData: function() {

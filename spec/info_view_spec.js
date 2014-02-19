@@ -65,7 +65,7 @@ describe('infoView', function() {
     var view = new InfoView({crime: crimeModel});
     long = crimeModel.get('longitude');
     lat = crimeModel.get('latitude');
-    expectedUrl = "http://maps.googleapis.com/maps/api/streetview?size=300x300&location=" + lat + "," + long + "&fov=90&heading=235&pitch=10&sensor=false"
+    expectedUrl = "http://maps.googleapis.com/maps/api/streetview?size=300x300&location=" + lat + "," + long + "&fov=90&pitch=10&sensor=false"
     expect(view.streetviewUrl()).toEqual(expectedUrl);
   });
 
