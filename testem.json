@@ -1,6 +1,7 @@
 {
   "framework": "jasmine",
   "src_files": [
+    ".tmp/js/templates.js",
     "js/vendor/jquery-1.10.2.min.js",
     "js/vendor/underscore.js",
     "js/vendor/backbone.js",
