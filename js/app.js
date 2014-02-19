@@ -17,16 +17,8 @@ crimes.fetch({
     _.each(crimes.models, function(crime) {
       crime.generateMarker(google, map);
       var crimeView = new InfoView({crime: crime});
-      var crimeWindow = new google.maps.InfoWindow({
-        content: crimeView.render().$el.html()
-      });
-      var _this = this;
       google.maps.event.addListener(crime.marker, "click", function() {
-        if (_this.selectedWindow != null) {
-          _this.selectedWindow.close();
-        }
-        _this.selectedWindow = crimeWindow;
-        crimeWindow.open(map, crime.marker);
+        $('[data-id="info-container"]').html(crimeView.render().$el);
       });
     });
   }
