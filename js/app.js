@@ -28,3 +28,13 @@ function setUpCrimes() {
     });
   });
 }
+
+$('[data-id="incident-count"]').change(function(event) {
+  var newLimit = $('[data-id="incident-count"] option:selected').data('count');
+  crimes.setLimit(newLimit);
+  mapUtils.clearMarkers();
+  crimes.fetch({
+    reset: true,
+    success: setUpCrimes
+  });
+});
