@@ -26,5 +26,9 @@ var Crimes = Backbone.Collection.extend({
 
   generateRangeString: function() {
     return "$limit=" + this.limit + "&$offset=" + this.offset;
+  },
+
+  filterByType: function(incidentType) {
+    return this.where({primary_type: incidentType});
   }
 });

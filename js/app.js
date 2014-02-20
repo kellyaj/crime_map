@@ -27,7 +27,7 @@ function setUpCrimes() {
       $('[data-id="info-container"]').html(crimeView.render().$el);
     });
   });
-}
+};
 
 $('[data-id="incident-count"]').change(function(event) {
   var newLimit = $('[data-id="incident-count"] option:selected').data('count');

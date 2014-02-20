@@ -1,9 +1,16 @@
 describe('crime model', function() {
 
   var collection;
+  var fakeCrimes;
 
   beforeEach(function() {
-    collection = new Crimes();
+    fakeCrimes = [
+      {"primary_type" : "ARSON"},
+      {"primary_type" : "HOMICIDE"},
+      {"primary_type" : "ARSON"},
+      {"primary_type" : "THEFT"},
+    ];
+    collection = new Crimes(fakeCrimes);
   });
 
   it("sets the limit to a passed in value", function () {
@@ -31,5 +38,11 @@ describe('crime model', function() {
     collection.sheet = "someSheet"
     expectedUrl = "https://data.cityofchicago.org/resource/someSheet.json?$limit=10&$offset=10"
     expect(collection.generateUrl()).toEqual(expectedUrl);
+  });
+
+  it("filters the collection based on primary incident type", function () {
+    expect(collection.filterByType("ARSON").length).toEqual(2);
+    expect(collection.filterByType("THEFT").length).toEqual(1);
+    expect(collection.filterByType("ROBBERY").length).toEqual(0);
   });
 });
