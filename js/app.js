@@ -15,14 +15,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 crimes = new Crimes();
 crimes.fetch({
-  success: function(data) {
-    _.each(crimes.models, function(crime) {
-      crime.generateMarker(google, map);
-      var crimeView = new InfoView({crime: crime});
-      mapUtils.addMarker(crime.marker);
-      google.maps.event.addListener(crime.marker, "click", function() {
-        $('[data-id="info-container"]').html(crimeView.render().$el);
-      });
-    });
-  }
+  success: setUpCrimes
 });
+
+function setUpCrimes() {
+  _.each(crimes.models, function(crime) {
+    crime.generateMarker(google, map);
+    var crimeView = new InfoView({crime: crime});
+    mapUtils.addMarker(crime.marker);
+    google.maps.event.addListener(crime.marker, "click", function() {
+      $('[data-id="info-container"]').html(crimeView.render().$el);
+    });
+  });
+}
