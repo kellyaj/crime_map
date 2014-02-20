@@ -5,6 +5,7 @@
 }
 
 .info-container {
+  border: 1px solid black;
   display: inline-block;
   height: 800px;
   margin: 0 0 0 2%;
@@ -12,6 +13,7 @@
   vertical-align: top;
 }
 .map-canvas {
+  border: 1px solid black;
   height: 100%;
   width: 100%;
 }
