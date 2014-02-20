@@ -6,6 +6,7 @@
     "js/vendor/underscore.js",
     "js/vendor/backbone.js",
     "js/crime.js",
+    "js/crimes.js",
     "js/info_view.js",
     "spec/**/*.js"
   ]

@@ -1,8 +1,30 @@
-var limit = "15";
-var rangeString = "$limit= " + limit + "&$offset=0";
-var sheet = "qnmj-8ku6"
-
 var Crimes = Backbone.Collection.extend({
-  url: "https://data.cityofchicago.org/resource/" + sheet + ".json?" + rangeString,
-  model: Crime
+  url: function() {
+    return this.generateUrl();
+  },
+
+  model: Crime,
+
+  initialize: function() {
+    this.limit = 15;
+    this.offset = 0;
+    this.sheet = "qnmj-8ku6";
+    this.resourceUrl = "https://data.cityofchicago.org/resource/"
+  },
+
+  setLimit: function(limit) {
+    this.limit = limit;
+  },
+
+  changeOffset: function(amount) {
+    this.offset += amount;
+  },
+
+  generateUrl: function() {
+    return this.resourceUrl + this.sheet + ".json?" + this.generateRangeString();
+  },
+
+  generateRangeString: function() {
+    return "$limit=" + this.limit + "&$offset=" + this.offset;
+  }
 });

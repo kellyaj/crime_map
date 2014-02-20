@@ -14,6 +14,7 @@ MapUtility.prototype.clearMarkers = function() {
   _.each(this.markers, function(marker) {
     _this.setAllMarkers(null);
   });
+  this.markers = []
 }
 
 MapUtility.prototype.addMarker = function(marker) {
