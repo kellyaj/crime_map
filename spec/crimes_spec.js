@@ -45,4 +45,8 @@ describe('crime model', function() {
     expect(collection.filterByType("THEFT").length).toEqual(1);
     expect(collection.filterByType("ROBBERY").length).toEqual(0);
   });
+
+  it("returns all models if the incidentType is ALL", function () {
+    expect(collection.filterByType("ALL").length).toEqual(4);
+  });
 });

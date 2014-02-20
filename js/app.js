@@ -15,11 +15,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 crimes = new Crimes();
 crimes.fetch({
-  success: setUpCrimes
+  success: function(data) {
+  setUpCrimes(data)
+  }
 });
 
-function setUpCrimes() {
-  _.each(crimes.models, function(crime) {
+function setUpCrimes(data) {
+  mapUtils.clearMarkers();
+  _.each(data.models, function(crime) {
     crime.generateMarker(google, map);
     var crimeView = new InfoView({crime: crime});
     mapUtils.addMarker(crime.marker);
@@ -35,6 +38,17 @@ $('[data-id="incident-count"]').change(function(event) {
   mapUtils.clearMarkers();
   crimes.fetch({
     reset: true,
-    success: setUpCrimes
+    success: function(data) {
+      incidentType = $('[data-id="incident-type"] option:selected').data('incident-type');
+      filteredData = data.filterByType(incidentType);
+      setUpCrimes(data);
+    }
   });
+});
+
+$('[data-id="incident-type"]').change(function(event) {
+  var newIncidentType = $('[data-id="incident-type"] option:selected').data('incident-type');
+  var newCrimes = new Crimes(crimes.filterByType(newIncidentType));
+  mapUtils.clearMarkers();
+  setUpCrimes(newCrimes);
 });

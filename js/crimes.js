@@ -29,6 +29,10 @@ var Crimes = Backbone.Collection.extend({
   },
 
   filterByType: function(incidentType) {
-    return this.where({primary_type: incidentType});
+    if (incidentType == "ALL") {
+      return this.models;
+    } else {
+      return this.where({primary_type: incidentType});
+    }
   }
 });
