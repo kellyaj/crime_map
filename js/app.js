@@ -1,6 +1,7 @@
 var map;
 var crimes;
 var mapUtils;
+var incidentTypes;
 
 function initialize() {
   var mapOptions = {
@@ -9,6 +10,7 @@ function initialize() {
   };
   map = new google.maps.Map($('[data-id="map-canvas"]')[0], mapOptions);
   mapUtils = new MapUtility(map);
+  incidentTypes = new IncidentTypes();
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

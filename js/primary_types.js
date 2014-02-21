@@ -1,10 +1,12 @@
-var categorizedList = {
+var IncidentTypes = function() {};
+
+IncidentTypes.prototype.category = {
   "OTHER": [
       "ARSON",
       "INTERFERENCE WITH PUBLIC OFFICE",
       "LIQUOR LAW VIOLATION",
       "NARCOTICS",
-      "NON-CRIMINAL"
+      "NON-CRIMINAL",
       "OFFENSE INVOLVING CHILDREN",
       "OTHER NARCOTIC VIOLATION",
       "OTHER OFFENSE",
