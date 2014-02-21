@@ -1,12 +1,68 @@
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+ *  *    v2.0 | 20110126
+ *   *       License: none (public domain)
+ *    *       */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* styles */
+
 .arrest-made{
   color: blue;
 }
 
+.container {
+  margin: 30px 0 0 30px;
+}
+
 .info-container {
-  border: 1px solid black;
   display: inline-block;
   height: 800px;
   margin: 0 0 0 2%;
+  padding: 0 10px 0 10px;
   width: 30%;
   vertical-align: top;
 }
@@ -23,12 +79,29 @@
   width: 60%;
 }
 
-
+.nav label {
+  font-family: "Lucida Console", Monaco, monospace;
+}
 .no-arrest {
   color: red;
 }
 
 .pano {
+  border: 1px solid black;
   height: 500px;
   width: 100%;
+}
+
+.sub-container {
+  margin: 10px 0 0 0;
+}
+
+.sub-container h1 {
+  font-weight: 800;
+  font-size: 170%;
+}
+
+.sub-container h2 {
+  font-weight: 800;
+  font-size: 150%;
 }
