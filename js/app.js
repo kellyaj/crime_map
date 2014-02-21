@@ -30,6 +30,9 @@ function setUpCrimes(data) {
     mapUtils.addMarker(crime.marker);
     google.maps.event.addListener(crime.marker, "click", function() {
       $('[data-id="info-container"]').html(crimeView.render().$el);
+      place = new google.maps.LatLng(crime.get('latitude'), crime.get('longitude'))
+      var panorama = new google.maps.StreetViewPanorama($('[data-id="pano"]')[0], {position: place, pov: {heading: 34, pitch: 10}});
+      map.setStreetView(panorama);
     });
   });
 };

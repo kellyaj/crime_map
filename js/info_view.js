@@ -16,14 +16,9 @@ var InfoView = Backbone.View.extend({
       "primary_type"          : model.get('primary_type'),
       "description"           : model.get('description'),
       "location_description"  : model.get('location_description'),
-      "streetviewUrl"         : this.streetviewUrl(),
       "arrest_status"         : this.formatArrestData(),
       "incident_date"         : model.formattedDate()
     }
-  },
-
-  streetviewUrl: function() {
-    return "http://maps.googleapis.com/maps/api/streetview?size=300x300&location=" + this.crime.get('latitude') + "," + this.crime.get('longitude') + "&fov=90&pitch=10&sensor=false"
   },
 
   formatArrestData: function() {

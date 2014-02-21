@@ -61,12 +61,4 @@ describe('infoView', function() {
     expect(view.formatArrestData()).toEqual('<div class="no-arrest">NO ARREST</div>');
   });
 
-  it("creates a streetviewUrl from the lat/long", function () {
-    var view = new InfoView({crime: crimeModel});
-    long = crimeModel.get('longitude');
-    lat = crimeModel.get('latitude');
-    expectedUrl = "http://maps.googleapis.com/maps/api/streetview?size=300x300&location=" + lat + "," + long + "&fov=90&pitch=10&sensor=false"
-    expect(view.streetviewUrl()).toEqual(expectedUrl);
-  });
-
 });
