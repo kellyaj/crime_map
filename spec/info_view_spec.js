@@ -28,10 +28,17 @@ describe('infoView', function() {
     "latitude" : "41.79185339253908",
     "district" : "008"
   };
+  var fakeMap = {}
+  var fakeGoogle = {
+    maps: {},
+  }
+  fakeGoogle.maps.StreetViewPanorama = function(){};
+  fakeGoogle.maps.LatLng = function(){};
+  fakeMap.setStreetView = function(){};
   var crimeModel = new Crime(fakeCrime);
 
   it("renders with basic crime info", function () {
-    var view = new InfoView({crime: crimeModel});
+    var view = new InfoView({crime: crimeModel, map: fakeMap, google: fakeGoogle});
     view.render();
 
     expect(view.$el.html()).toContain("ARSON");
@@ -42,7 +49,7 @@ describe('infoView', function() {
 
   it("displays arrest status", function () {
     crimeModel.set('arrest', false);
-    var view = new InfoView({crime: crimeModel});
+    var view = new InfoView({crime: crimeModel, map: fakeMap, google: fakeGoogle});
 
     view.render();
 

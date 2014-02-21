@@ -2,12 +2,15 @@ var InfoView = Backbone.View.extend({
 
   initialize: function(options) {
     this.crime = options.crime;
+    this.google = options.google;
+    this.map = options.map;
   },
 
   template: JST['js/templates/info_view.ejs'],
 
   render: function() {
-    this.$el.html(this.template(this.displayData(this.crime)))
+    this.$el.html(this.template(this.displayData(this.crime)));
+    this.renderStreetView();
     return this;
   },
 
@@ -28,5 +31,11 @@ var InfoView = Backbone.View.extend({
       return '<div class="no-arrest">NO ARREST</div>';
     }
   },
+
+  renderStreetView: function() {
+    var place = new this.google.maps.LatLng(this.crime.get('latitude'), this.crime.get('longitude'))
+    var panorama = new this.google.maps.StreetViewPanorama(this.$el.find('[data-id="pano"]')[0], {position: place});
+    this.map.setStreetView(panorama);
+  }
 
 });
