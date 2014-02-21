@@ -16,7 +16,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 crimes = new Crimes();
 crimes.fetch({
   success: function(data) {
-  setUpCrimes(data)
+    setUpCrimes(data);
   }
 });
 
