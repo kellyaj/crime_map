@@ -5,8 +5,9 @@ var incidentTypes;
 
 function initialize() {
   var mapOptions = {
-    zoom: 11,
-    center: new google.maps.LatLng(41.833, -87.732)
+    center: new google.maps.LatLng(41.833, -87.732),
+    minZoom: 10,
+    zoom: 11
   };
   map = new google.maps.Map($('[data-id="map-canvas"]')[0], mapOptions);
   mapUtils = new MapUtility(map);
