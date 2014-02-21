@@ -6,9 +6,12 @@ describe('crime model', function() {
   beforeEach(function() {
     fakeCrimes = [
       {"primary_type" : "ARSON"},
-      {"primary_type" : "HOMICIDE"},
       {"primary_type" : "ARSON"},
+      {"primary_type" : "HOMICIDE"},
+      {"primary_type" : "ASSAULT"},
+      {"primary_type" : "BATTERY"},
       {"primary_type" : "THEFT"},
+      {"primary_type" : "STALKING"},
     ];
     collection = new Crimes(fakeCrimes);
   });
@@ -40,13 +43,14 @@ describe('crime model', function() {
     expect(collection.generateUrl()).toEqual(expectedUrl);
   });
 
-  it("filters the collection based on primary incident type", function () {
-    expect(collection.filterByType("ARSON").length).toEqual(2);
-    expect(collection.filterByType("THEFT").length).toEqual(1);
-    expect(collection.filterByType("ROBBERY").length).toEqual(0);
+  it("returns all models if the incidentType is ALL", function () {
+    expect(collection.filterByType("ALL").length).toEqual(fakeCrimes.length);
   });
 
-  it("returns all models if the incidentType is ALL", function () {
-    expect(collection.filterByType("ALL").length).toEqual(4);
+  it("returns models for each category", function() {
+    expect(collection.filterByType("VIOLENT").length).toEqual(3);
+    expect(collection.filterByType("PROPERTY").length).toEqual(1);
+    expect(collection.filterByType("PERSONAL").length).toEqual(1);
+    expect(collection.filterByType("OTHER").length).toEqual(2);
   });
 });

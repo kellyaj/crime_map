@@ -3,6 +3,7 @@ var IncidentTypes = function() {};
 IncidentTypes.prototype.category = {
   "OTHER": [
       "ARSON",
+      "GAMBLING",
       "INTERFERENCE WITH PUBLIC OFFICE",
       "LIQUOR LAW VIOLATION",
       "NARCOTICS",
