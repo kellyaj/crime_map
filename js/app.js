@@ -32,23 +32,23 @@ function setUpCrimes(data) {
   });
 };
 
+function renderFiltered(crimeCollection) {
+  incidentType = $('[data-id="incident-type"] option:selected').data('incident-type');
+  filteredCollection = new Crimes(crimeCollection.filterByType(incidentType));
+  setUpCrimes(filteredCollection);
+};
+
 $('[data-id="incident-count"]').change(function(event) {
   var newLimit = $('[data-id="incident-count"] option:selected').data('count');
   crimes.setLimit(newLimit);
-  mapUtils.clearMarkers();
   crimes.fetch({
     reset: true,
-    success: function(data) {
-      incidentType = $('[data-id="incident-type"] option:selected').data('incident-type');
-      filteredData = data.filterByType(incidentType);
-      setUpCrimes(data);
+    success: function() {
+      renderFiltered(crimes);
     }
   });
 });
 
 $('[data-id="incident-type"]').change(function(event) {
-  var newIncidentType = $('[data-id="incident-type"] option:selected').data('incident-type');
-  var newCrimes = new Crimes(crimes.filterByType(newIncidentType));
-  mapUtils.clearMarkers();
-  setUpCrimes(newCrimes);
+  renderFiltered(crimes);
 });
