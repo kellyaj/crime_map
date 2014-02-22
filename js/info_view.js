@@ -6,6 +6,8 @@ var InfoView = Backbone.View.extend({
     this.map = options.map;
   },
 
+  className: "info-view",
+
   template: JST['js/templates/info_view.ejs'],
 
   render: function() {

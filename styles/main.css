@@ -52,6 +52,7 @@ table {
 
 .arrest-made{
   color: blue;
+  display: inline-block;
 }
 
 .container {
@@ -65,6 +66,20 @@ table {
   padding: 0 10px 0 10px;
   width: 30%;
   vertical-align: top;
+}
+
+.info-view {
+}
+
+.info-content h1 {
+}
+
+.info-content h2 {
+  padding: 0.6em 0 0 0;
+}
+
+.info-content h3 {
+  padding: 0.6em 0 0 0;
 }
 
 .map-canvas {
@@ -84,15 +99,18 @@ table {
 }
 .no-arrest {
   color: red;
+  display: inline-block;
 }
 
 .pano {
   border: 1px solid black;
   height: 500px;
+  margin: 1.25em 0 0 0;
   width: 100%;
 }
 
 .sub-container {
+  font-family: "Lucida Console", Monaco, monospace;
   margin: 10px 0 0 0;
 }
 
