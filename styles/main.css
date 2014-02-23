@@ -50,6 +50,10 @@ table {
 
 /* styles */
 
+body {
+  background-image: url('../images/squared_metal.png');
+}
+
 .arrest-made{
   color: blue;
   display: inline-block;
