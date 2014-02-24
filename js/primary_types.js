@@ -39,6 +39,13 @@ IncidentTypes.prototype.category = {
     ]
 }
 
+IncidentTypes.prototype.markerIcon = {
+  "VIOLENT"  : "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+  "PROPERTY" : "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+  "PERSONAL" : "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+  "OTHER"    : "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+}
+
 var masterList = [
   "ASSAULT",
   "ARSON",
