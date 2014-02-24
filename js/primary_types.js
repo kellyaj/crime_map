@@ -39,6 +39,18 @@ IncidentTypes.prototype.category = {
     ]
 }
 
+IncidentTypes.prototype.isViolent = function(primaryType) {
+  return _.contains(this.category["VIOLENT"], primaryType);
+}
+
+IncidentTypes.prototype.isProperty = function(primaryType) {
+  return _.contains(this.category["PROPERTY"], primaryType);
+}
+
+IncidentTypes.prototype.isPersonal = function(primaryType) {
+  return _.contains(this.category["PERSONAL"], primaryType);
+}
+
 IncidentTypes.prototype.markerIcon = {
   "VIOLENT"  : "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
   "PROPERTY" : "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",

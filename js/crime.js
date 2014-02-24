@@ -24,11 +24,11 @@ var Crime = Backbone.Model.extend({
   },
 
   setIncidentCategory: function() {
-    if (_.contains(this.incidentTypes.category["VIOLENT"], this.primaryType)) {
+    if (this.incidentTypes.isViolent(this.primaryType)) {
       this.incidentCategory = "VIOLENT"
-    } else if (_.contains(this.incidentTypes.category["PROPERTY"], this.primaryType)) {
+    } else if (this.incidentTypes.isProperty(this.primaryType)) {
       this.incidentCategory = "PROPERTY"
-    } else if (_.contains(this.incidentTypes.category["PERSONAL"], this.primaryType)) {
+    } else if (this.incidentTypes.isPersonal(this.primaryType)) {
       this.incidentCategory = "PERSONAL"
     } else {
       this.incidentCategory = "OTHER"
