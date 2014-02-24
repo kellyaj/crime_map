@@ -35,6 +35,11 @@ describe('crime model', function() {
   fakeGoogle.maps.LatLng = function(){};
   fakeGoogle.maps.Marker = function(){};
 
+  _createCrime = function(primaryType) {
+    var newCrime = new Crime({"primary_type": primaryType});
+    newCrime.setIncidentCategory();
+    return newCrime;
+  }
   it("generates a google maps marker based on its information", function () {
     var crime = new Crime(fakeCrime);
 
@@ -47,5 +52,16 @@ describe('crime model', function() {
     var crime = new Crime(fakeCrime);
 
     expect(crime.formattedDate()).toEqual("02/01/2014");
+  });
+
+  it("sets the incidentCategory based on the primaryType", function () {
+    var violentCrime = _createCrime("ASSAULT");
+    var personalCrime = _createCrime("STALKING");
+    var propertyCrime = _createCrime("THEFT");
+    var otherCrime = _createCrime("ARSON");
+    expect(violentCrime.incidentCategory).toEqual("VIOLENT");
+    expect(personalCrime.incidentCategory).toEqual("PERSONAL");
+    expect(propertyCrime.incidentCategory).toEqual("PROPERTY");
+    expect(otherCrime.incidentCategory).toEqual("OTHER");
   });
 });
