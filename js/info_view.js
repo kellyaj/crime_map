@@ -36,7 +36,7 @@ var InfoView = Backbone.View.extend({
 
   renderStreetView: function() {
     var place = new this.google.maps.LatLng(this.crime.get('latitude'), this.crime.get('longitude'))
-    var panorama = new this.google.maps.StreetViewPanorama(this.$el.find('[data-id="pano"]')[0], {position: place, disableDefaultUI: true});
+    var panorama = new this.google.maps.StreetViewPanorama(this.$el.find('[data-id="pano"]')[0], {position: place, disableDefaultUI: true, clickToGo: true});
     this.map.setStreetView(panorama);
   }
 
