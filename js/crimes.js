@@ -6,7 +6,7 @@ var Crimes = Backbone.Collection.extend({
   model: Crime,
 
   initialize: function() {
-    this.limit = 15;
+    this.limit = 25;
     this.offset = 0;
     this.sheet = "qnmj-8ku6";
     this.resourceUrl = "https://data.cityofchicago.org/resource/"
