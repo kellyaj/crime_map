@@ -74,9 +74,10 @@ body {
 
 .info-view {
   background: #fff;
-  padding: 1em;
-  font-size: 0.9em;
+  border-radius: 4px;
   color: #555;
+  font-size: 0.9em;
+  padding: 1em;
 }
 
 .info-content h1 {
