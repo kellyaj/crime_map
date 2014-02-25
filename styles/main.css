@@ -98,8 +98,16 @@ body {
   width: 60%;
 }
 
+.nav {
+  background: #fff;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 0.6em;
+}
 .nav label {
-  font-family: "Lucida Console", Monaco, monospace;
+  color: #555;
+  font-family: arial;
+  font-size: 0.9em;
 }
 .no-arrest {
   color: red;
@@ -114,7 +122,7 @@ body {
 }
 
 .sub-container {
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: arial;
   margin: 10px 0 0 0;
 }
 
