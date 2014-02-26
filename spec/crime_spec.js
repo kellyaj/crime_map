@@ -51,7 +51,7 @@ describe('crime model', function() {
   it("formats the date into human readable format", function () {
     var crime = new Crime(fakeCrime);
 
-    expect(crime.formattedDate()).toEqual("02/01/2014");
+    expect(crime.formattedDate()).toEqual("02/01/2014 05:00");
   });
 
   it("sets the incidentCategory based on the primaryType", function () {

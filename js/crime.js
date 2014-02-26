@@ -18,9 +18,12 @@ var Crime = Backbone.Model.extend({
   },
 
   formattedDate: function() {
-    var date = this.get('date').split("T")[0];
+    var splitData = this.get('date').split("T");
+    var date = splitData[0];
+    var splitTime = splitData[1].split(":");
+    var time = [splitTime[0], splitTime[1]].join(":");
     var dateSplit = date.split("-");
-    return [dateSplit[1], dateSplit[2], dateSplit[0]].join("/");
+    return [dateSplit[1], dateSplit[2], dateSplit[0]].join("/") + " " + time;
   },
 
   setIncidentCategory: function() {
