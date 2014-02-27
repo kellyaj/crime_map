@@ -1,5 +1,6 @@
 {
   "framework": "jasmine",
+  "before_tests": "grunt coffee",
   "src_files": [
     ".tmp/js/templates.js",
     "js/vendor/jquery-1.10.2.min.js",
@@ -9,6 +10,8 @@
     "js/crime.js",
     "js/crimes.js",
     "js/info_view.js",
+    ".tmp/scripts/**/*.js",
+    ".tmp/spec/**/*.js",
     "spec/**/*.js"
   ]
 }
