@@ -28,9 +28,9 @@ var InfoView = Backbone.View.extend({
 
   formatArrestData: function() {
     if (this.crime.get('arrest')) {
-      return '<div class="arrest-made">ARREST MADE</div>';
+      return '<div class="arrest-made">ARREST MADE<span class="icon-cuffs"></span></div>';
     } else {
-      return '<div class="no-arrest">NO ARREST</div>';
+      return '<div class="no-arrest">NO ARREST<span class="icon-warning"></span></div>';
     }
   },
 

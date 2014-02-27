@@ -175,3 +175,23 @@ body {
   height: 15px;
   width: 15px;
 }
+
+.icon-cuffs {
+  background-repeat: no-repeat;
+  background-image: url('../images/handcuffs.svg');
+  background-size: 15px 15px;
+  display: inline-block;
+  margin: 0 0 0 0.3em;
+  height: 15px;
+  width: 15px;
+}
+
+.icon-warning {
+  background-repeat: no-repeat;
+  background-image: url('../images/warning.svg');
+  background-size: 15px 15px;
+  display: inline-block;
+  margin: 0 0 0 0.3em;
+  height: 15px;
+  width: 15px;
+}
