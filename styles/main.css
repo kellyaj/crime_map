@@ -143,3 +143,13 @@ body {
   font-weight: 800;
   font-size: 150%;
 }
+
+.flash {
+  color: red;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 150%;
+  font-weight: 900;
+  margin: 0 0 0 1em;
+  text-align: center;
+}

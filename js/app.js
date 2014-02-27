@@ -42,11 +42,16 @@ function renderFiltered(crimeCollection) {
 };
 
 $('[data-id="incident-count"]').change(function(event) {
+  $('[data-id="flash"]').html("LOADING...");
   var newLimit = $('[data-id="incident-count"] option:selected').data('count');
   crimes.setLimit(newLimit);
   crimes.fetch({
     reset: true,
     success: function() {
+      $('[data-id="flash"]').fadeOut("slow", function() {
+        $('[data-id="flash"]').empty();
+        $('[data-id="flash"]').css('display', 'inline-block');
+      });
       renderFiltered(crimes);
     }
   });
