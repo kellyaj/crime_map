@@ -59,13 +59,13 @@ describe('infoView', function() {
   it("formats arrest data for display when there was an arrest", function () {
     crimeModel.set('arrest', true);
     var view = new InfoView({crime: crimeModel});
-    expect(view.formatArrestData()).toEqual('<div class="arrest-made">ARREST MADE</div>');
+    expect(view.formatArrestData()).toContain('<div class="arrest-made">');
   });
 
   it("formats arrest data for display when no arrest", function () {
     crimeModel.set('arrest', false);
     var view = new InfoView({crime: crimeModel});
-    expect(view.formatArrestData()).toEqual('<div class="no-arrest">NO ARREST</div>');
+    expect(view.formatArrestData()).toContain('<div class="no-arrest">');
   });
 
 });
