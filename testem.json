@@ -1,6 +1,6 @@
 {
   "framework": "jasmine",
-  "before_tests": "grunt coffee",
+  "before_tests": "grunt compile",
   "src_files": [
     ".tmp/js/templates.js",
     "js/vendor/jquery-1.10.2.min.js",
