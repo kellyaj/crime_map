@@ -51,7 +51,7 @@ describe('crime model', function() {
   it("formats the date into human readable format", function () {
     var crime = new Crime(fakeCrime);
 
-    expect(crime.formattedDate()).toEqual("02/01/2014 05:00");
+    expect(crime.formattedDate()).toContain("02/01/2014 05:00");
   });
 
   it("sets the incidentCategory based on the primaryType", function () {
@@ -63,5 +63,15 @@ describe('crime model', function() {
     expect(personalCrime.incidentCategory).toEqual("PERSONAL");
     expect(propertyCrime.incidentCategory).toEqual("PROPERTY");
     expect(otherCrime.incidentCategory).toEqual("OTHER");
+  });
+
+  it("considers day as between 06:00 and 22:00", function () {
+    var crime = new Crime(fakeCrime);
+
+    expect(crime.isDayTime("05:59")).toEqual(false);
+    expect(crime.isDayTime("06:00")).toEqual(true);
+    expect(crime.isDayTime("21:59")).toEqual(true);
+    expect(crime.isDayTime("22:00")).toEqual(false);
+    expect(crime.isDayTime("03:45")).toEqual(false);
   });
 });

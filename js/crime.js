@@ -23,7 +23,17 @@ var Crime = Backbone.Model.extend({
     var splitTime = splitData[1].split(":");
     var time = [splitTime[0], splitTime[1]].join(":");
     var dateSplit = date.split("-");
-    return [dateSplit[1], dateSplit[2], dateSplit[0]].join("/") + " " + time;
+    var dateTime = [dateSplit[1], dateSplit[2], dateSplit[0]].join("/") + " " + time;
+    if (this.isDayTime(time)) {
+      dateTime += '<span class="icon-sun"></span>'
+    } else {
+      dateTime += '<span class="icon-moon"></span>'
+    }
+    return dateTime;
+  },
+
+  isDayTime: function(time) {
+    return time < "22:00" && time >= "06:00";
   },
 
   setIncidentCategory: function() {
