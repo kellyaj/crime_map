@@ -27,7 +27,7 @@ module.exports = function(grunt) {
       compileScripts: {
         expand: true,
         flatten: true,
-        cwd: 'js',
+        cwd: 'scripts',
         src: '**/*.coffee',
         dest: '.tmp/scripts',
         ext: '.js'

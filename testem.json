@@ -8,9 +8,8 @@
     "js/vendor/backbone.js",
     "js/primary_types.js",
     "js/crime.js",
-    "js/crimes.js",
     "js/info_view.js",
-    ".tmp/scripts/**/*.js",
+    ".tmp/scripts/incidents.js",
     ".tmp/spec/**/*.js",
     "spec/**/*.js"
   ]
