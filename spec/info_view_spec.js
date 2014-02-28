@@ -1,6 +1,6 @@
 describe('infoView', function() {
 
-  var fakeCrime = {
+  var fakeIncident = {
     "case_number" : "HX135149",
     "beat" : "0822",
     "location" : {
@@ -35,10 +35,10 @@ describe('infoView', function() {
   fakeGoogle.maps.StreetViewPanorama = function(){};
   fakeGoogle.maps.LatLng = function(){};
   fakeMap.setStreetView = function(){};
-  var crimeModel = new Crime(fakeCrime);
+  var crimeModel = new Incident(fakeIncident);
 
   it("renders with basic crime info", function () {
-    var view = new InfoView({crime: crimeModel, map: fakeMap, google: fakeGoogle});
+    var view = new InfoView({incident: crimeModel, map: fakeMap, google: fakeGoogle});
     view.render();
 
     expect(view.$el.html()).toContain("ARSON");
@@ -49,7 +49,7 @@ describe('infoView', function() {
 
   it("displays arrest status", function () {
     crimeModel.set('arrest', false);
-    var view = new InfoView({crime: crimeModel, map: fakeMap, google: fakeGoogle});
+    var view = new InfoView({incident: crimeModel, map: fakeMap, google: fakeGoogle});
 
     view.render();
 
@@ -58,13 +58,13 @@ describe('infoView', function() {
 
   it("formats arrest data for display when there was an arrest", function () {
     crimeModel.set('arrest', true);
-    var view = new InfoView({crime: crimeModel});
+    var view = new InfoView({incident: crimeModel});
     expect(view.formatArrestData()).toContain('<div class="arrest-made">');
   });
 
   it("formats arrest data for display when no arrest", function () {
     crimeModel.set('arrest', false);
-    var view = new InfoView({crime: crimeModel});
+    var view = new InfoView({incident: crimeModel});
     expect(view.formatArrestData()).toContain('<div class="no-arrest">');
   });
 

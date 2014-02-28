@@ -1,7 +1,7 @@
 var InfoView = Backbone.View.extend({
 
   initialize: function(options) {
-    this.crime = options.crime;
+    this.crime = options.incident;
     this.google = options.google;
     this.map = options.map;
   },

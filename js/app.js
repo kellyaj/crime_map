@@ -19,26 +19,26 @@ google.maps.event.addDomListener(window, 'load', initialize);
 incidents = new Incidents();
 incidents.fetch({
   success: function(data) {
-    setUpCrimes(data);
+    setUpIncidents(data);
   }
 });
 
-function setUpCrimes(data) {
+function setUpIncidents(data) {
   mapUtils.clearMarkers();
-  _.each(data.models, function(crime) {
-    crime.generateMarker(google, map);
-    var crimeView = new InfoView({crime: crime, map: map, google: google});
-    mapUtils.addMarker(crime.marker);
-    google.maps.event.addListener(crime.marker, "click", function() {
-      $('[data-id="info-container"]').html(crimeView.render().$el);
+  _.each(data.models, function(incident) {
+    incident.generateMarker(google, map);
+    var incidentView = new InfoView({incident: incident, map: map, google: google});
+    mapUtils.addMarker(incident.marker);
+    google.maps.event.addListener(incident.marker, "click", function() {
+      $('[data-id="info-container"]').html(incidentView.render().$el);
     });
   });
 };
 
-function renderFiltered(crimeCollection) {
+function renderFiltered(incidentCollection) {
   incidentType = $('[data-id="incident-type"] option:selected').data('incident-type');
-  filteredCollection = new Incidents(crimeCollection.filterByType(incidentType));
-  setUpCrimes(filteredCollection);
+  filteredCollection = new Incidents(incidentCollection.filterByType(incidentType));
+  setUpIncidents(filteredCollection);
 };
 
 $('[data-id="incident-count"]').change(function(event) {
