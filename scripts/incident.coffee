@@ -3,6 +3,7 @@ class Incident extends Backbone.Model
   initialize: (modelData) ->
     @incidentTypes = new IncidentTypes()
     @primaryType = @get('primary_type')
+    @setIncidentCategory()
     super(modelData)
 
   generateMarker: (google, map) ->

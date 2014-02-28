@@ -11,7 +11,7 @@ class Incidents extends Backbone.Collection
   url: ->
     @generateUrl()
 
-  model: Crime
+  model: Incident
 
   setLimit: (newLimit) ->
     @limit = newLimit
