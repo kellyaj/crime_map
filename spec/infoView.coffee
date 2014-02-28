@@ -29,33 +29,41 @@ describe 'InfoView', ->
       "latitude" : "41.79185339253908",
       "district" : "008"
     }
-    @fakeMap = {}
-    @fakeGoogle = {maps: {}} #refactor 33-36 into here
-    @fakeGoogle.maps.StreetViewPanorama = ->
-    @fakeGoogle.maps.LatLng = ->
-    @fakeMap.setStreetView = ->
+    @fakeMap =
+      setStreetView: ->
+    @fakeGoogle =
+      maps:
+        StreetViewPanorama: ->
+        LatLng: ->
     @incidentModel = new Incident(fakeIncident)
+    @view = new InfoView({incident: @incidentModel, map: @fakeMap, google: @fakeGoogle})
+
 
   it 'renders with basic incident info', ->
-    view = new InfoView({incident: @incidentModel, map: @fakeMap, google: @fakeGoogle})
+    @view.render()
 
-    view.render()
-
-    expect(view.$el.html()).toContain("ARSON")
-    expect(view.$el.html()).toContain("IT GOT HOT")
-    expect(view.$el.html()).toContain("RESIDENCE")
-    expect(view.$el.html()).toContain("02/01/2014")
+    expect(@view.$el.html()).toContain("ARSON")
+    expect(@view.$el.html()).toContain("IT GOT HOT")
+    expect(@view.$el.html()).toContain("RESIDENCE")
+    expect(@view.$el.html()).toContain("02/01/2014")
 
   it 'displays arrest status', ->
     @incidentModel.set 'arrest', false
-    view = new InfoView({incident: @incidentModel, map: @fakeMap, google: @fakeGoogle})
 
-    view.render()
+    @view.render()
 
-    expect(view.$el.html()).toContain("NO ARREST")
+    expect(@view.$el.html()).toContain("NO ARREST")
 
   it 'formats arrest data for display when there was an arrest', ->
     @incidentModel.set 'arrest', false
-    view = new InfoView({incident: @incidentModel, map: @fakeMap, google: @fakeGoogle})
 
-    expect(view.formatArrestData()).toContain('<div class="no-arrest">')
+    expect(@view.formatArrestData()).toContain('<div class="no-arrest">')
+
+  it 'sets the streetView on render', ->
+    panoSpy = spyOn(@fakeGoogle.maps, 'StreetViewPanorama')
+    streetViewSpy = spyOn(@view.map, 'setStreetView')
+
+    @view.render()
+
+    expect(panoSpy).toHaveBeenCalled()
+    expect(streetViewSpy).toHaveBeenCalled()

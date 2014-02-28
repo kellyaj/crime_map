@@ -25,13 +25,18 @@ class InfoView extends Backbone.View
 
   formatArrestData: ->
     if @incident.get('arrest')
-      '<div class="arrest-made">ARREST MADE<span class="icon-cuffs"></span></div>'
+      @arrestMadeHTML()
     else
+      @noArrestMadeHTML()
+
+  arrestMadeHTML: ->
+      '<div class="arrest-made">ARREST MADE<span class="icon-cuffs"></span></div>'
+
+  noArrestMadeHTML: ->
       '<div class="no-arrest">NO ARREST<span class="icon-warning"></span></div>'
 
   renderStreetView: ->
-    place = new @google.maps.LatLng(@incident.get('latitude'), @incident.get('longitude'))
-    panorama = new @google.maps.StreetViewPanorama(@$el.find('[data-id="pano"]')[0], {position: place, disableDefaultUI: true, clickToGo: true})
+    panorama = new @google.maps.StreetViewPanorama(@$el.find('[data-id="pano"]')[0], {position: @incident.mapCoordinate, disableDefaultUI: true, clickToGo: true})
     @map.setStreetView(panorama)
 
 
