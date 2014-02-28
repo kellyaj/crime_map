@@ -30,8 +30,8 @@ class InfoView extends Backbone.View
       '<div class="no-arrest">NO ARREST<span class="icon-warning"></span></div>'
 
   renderStreetView: ->
-    place = @google.maps.LatLng(@incident.get('latitude'), @incident.get('longitude'))
-    panorama = new @google.maps.StreetViewPanorama(@$el.find('[data-id="pano"]')[0], {position: place, disableDefaultUI: true, clickToGo: true});
+    place = new @google.maps.LatLng(@incident.get('latitude'), @incident.get('longitude'))
+    panorama = new @google.maps.StreetViewPanorama(@$el.find('[data-id="pano"]')[0], {position: place, disableDefaultUI: true, clickToGo: true})
     @map.setStreetView(panorama)
 
 
