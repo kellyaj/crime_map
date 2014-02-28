@@ -1,10 +1,10 @@
 class Incidents extends Backbone.Collection
 
   initialize: (modelData)->
-    @limit = 25
-    @offset = 0
-    @resourceUrl = "https://data.cityofchicago.org/resource/"
-    @sheet = "qnmj-8ku6"
+    @limit         = 25
+    @offset        = 0
+    @resourceUrl   = "https://data.cityofchicago.org/resource/"
+    @sheet         = "qnmj-8ku6"
     @incidentTypes = new IncidentTypes()
     super(modelData)
 
