@@ -10,18 +10,16 @@ class InfoView extends Backbone.View
   className: "info-view"
 
   render: ->
-    @$el.html(@template(@displayData(@incident)))
+    @$el.html(@template(@displayData()))
     @renderStreetView()
     @
 
-  displayData: (model) ->
-    {
-      'primary_type' : model.get('primary_type')
-      'description' : model.get('description')
-      'location_description' : model.get('location_description')
-      'arrest_status' : this.formatArrestData()
-      'incident_date' : model.formattedDate()
-    }
+  displayData: ->
+    'primary_type'         : @incident.get('primary_type')
+    'description'          : @incident.get('description')
+    'location_description' : @incident.get('location_description')
+    'arrest_status'        : @formatArrestData()
+    'incident_date'        : @incident.formattedDate()
 
   formatArrestData: ->
     if @incident.get('arrest')
@@ -30,10 +28,10 @@ class InfoView extends Backbone.View
       @noArrestMadeHTML()
 
   arrestMadeHTML: ->
-      '<div class="arrest-made">ARREST MADE<span class="icon-cuffs"></span></div>'
+    '<div class="arrest-made">ARREST MADE<span class="icon-cuffs"></span></div>'
 
   noArrestMadeHTML: ->
-      '<div class="no-arrest">NO ARREST<span class="icon-warning"></span></div>'
+    '<div class="no-arrest">NO ARREST<span class="icon-warning"></span></div>'
 
   renderStreetView: ->
     panorama = new @google.maps.StreetViewPanorama(@$el.find('[data-id="pano"]')[0], {position: @incident.mapCoordinate, disableDefaultUI: true, clickToGo: true})
