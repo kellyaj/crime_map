@@ -9,6 +9,7 @@
     "js/primary_types.js",
     "js/crime.js",
     "js/info_view.js",
+    ".tmp/scripts/incident.js",
     ".tmp/scripts/incidents.js",
     ".tmp/spec/**/*.js",
     "spec/**/*.js"
