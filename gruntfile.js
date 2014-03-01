@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     jst: {
       compile: {
         files: {
-          ".tmp/js/templates.js": ["js/**/*.ejs"]
+          ".tmp/js/templates.js": ["js/**/*.ejs", "scripts/templates/*.ejs"]
         }
       }
     },

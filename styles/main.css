@@ -79,6 +79,7 @@ body {
   color: #555;
   font-size: 0.9em;
   padding: 1em;
+  height: 97%;
 }
 
 .info-content h1 {
@@ -95,7 +96,7 @@ body {
 .map-canvas {
   border: 1px solid black;
   box-shadow: 5px 5px 5px #888888;
-  height: 85%;
+  height: 100%;
   width: 100%;
 }
 
@@ -186,6 +187,17 @@ body {
   width: 15px;
 }
 
+.icon-close {
+  background-repeat: no-repeat;
+  background-image: url('../images/close.svg');
+  background-size: 15px 15px;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 15px;
+  width: 15px;
+}
+
 .icon-warning {
   background-repeat: no-repeat;
   background-image: url('../images/warning.svg');
@@ -194,4 +206,40 @@ body {
   margin: 0 0 0 0.3em;
   height: 15px;
   width: 15px;
+}
+
+.about {
+  margin: 0.6em 0 0 0;
+}
+
+.about-button {
+  background: #fff;
+  box-shadow: 5px 5px 5px #888888;
+  color: #555;
+  cursor: pointer;
+  font-family: arial;
+  font-size: 0.9em;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 1em;
+}
+
+.about-container {
+  background: #fff;
+  box-shadow: 5px 5px 5px #888888;
+  border-radius: 4px;
+  display: none;
+  color: #555;
+  font-size: 0.9em;
+  padding: 1em;
+  width: 30%;
+}
+
+.about-text p {
+  color: #555;
+  display: inline-block;
+  font-family: arial;
+  font-size: 0.9em;
+  line-height: 1.3em;
+  padding: 1em 0 0 0;
 }

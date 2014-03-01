@@ -60,3 +60,10 @@ $('[data-id="incident-count"]').change(function(event) {
 $('[data-id="incident-type"]').change(function(event) {
   renderFiltered(incidents);
 });
+
+$('[data-id="about-button"]').click(function(event) {
+  var aboutView = new AboutView();
+  $('[data-id="about-button"]').hide();
+  $('[data-id="about-container"]').show();
+  $('[data-id="about-container"]').html(aboutView.render().$el);
+});
