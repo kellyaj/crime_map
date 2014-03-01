@@ -5,7 +5,7 @@ class InfoView extends Backbone.View
     @google = options.google
     @map = options.map
 
-  template: JST['js/templates/info_view.ejs']
+  template: JST['scripts/templates/info_view.ejs']
 
   className: "info-view"
 
