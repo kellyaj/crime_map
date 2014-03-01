@@ -40,6 +40,23 @@ module.exports = function(grunt) {
         dest: '.tmp/spec',
         ext: '.js'
       }
+    },
+    uglify: {
+      my_target: {
+        files: {'mapgruff.min.js': [
+                                    'js/jquery-1.10.2.min.js',
+                                    'js/vendor/underscore.js',
+                                    'js/vendor/backbone.js',
+                                    '.tmp/js/templates.js',
+                                    '.tmp/scripts/mapUtility.js',
+                                    'js/primary_types.js',
+                                    '.tmp/scripts/incident.js',
+                                    '.tmp/scripts/incidents.js',
+                                    '.tmp/scripts/infoView.js',
+                                    'js/app.js',
+                                   ]
+        }
+      }
     }
 
   });
@@ -48,7 +65,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-jst');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('default', ['jst']);
   grunt.registerTask('compile', ['clean', 'jst', 'coffee']);
+  grunt.registerTask('build', ['clean', 'jst', 'coffee', 'uglify']);
 }
