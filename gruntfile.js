@@ -53,6 +53,7 @@ module.exports = function(grunt) {
                                     '.tmp/scripts/incident.js',
                                     '.tmp/scripts/incidents.js',
                                     '.tmp/scripts/infoView.js',
+                                    '.tmp/scripts/aboutView.js',
                                     'js/app.js',
                                    ]
         }
