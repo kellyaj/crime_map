@@ -47,7 +47,7 @@ module.exports = function(grunt) {
                                     'js/jquery-1.10.2.min.js',
                                     'js/vendor/underscore.js',
                                     'js/vendor/backbone.js',
-                                    '.tmp/js/templates.js',
+                                    '.tmp/scripts/templates.js',
                                     '.tmp/scripts/mapUtility.js',
                                     'js/primary_types.js',
                                     '.tmp/scripts/incident.js',
