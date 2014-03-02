@@ -15,6 +15,8 @@ function initialize() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+legendView = new LegendView()
+$('[data-id="legend-container"]').html(legendView.render().$el);
 
 incidents = new Incidents();
 incidents.fetch({

@@ -243,3 +243,25 @@ body {
   line-height: 1.3em;
   padding: 1em 0 0 0;
 }
+
+.legend {
+  margin: 0 0 0 3em;
+  background: #fff;
+  box-shadow: 5px 5px 5px #888888;
+  border-radius: 4px;
+  color: #555;
+  display: inline-block;
+  font-family: arial;
+  font-size: 0.9em;
+  padding: 0.9em;
+}
+
+.legend ul li {
+  display: inline-block;
+  margin: 0 0 0 0.6em;
+}
+
+.legend img {
+  height: 13px;
+  width: 13px;
+}
