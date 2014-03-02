@@ -44,9 +44,9 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {'mapgruff.min.js': [
-                                    'js/jquery-1.10.2.min.js',
-                                    'js/vendor/underscore.js',
-                                    'js/vendor/backbone.js',
+                                    'scripts/vendor/jquery-1.10.2.min.js',
+                                    'scripts/vendor/underscore.js',
+                                    'scripts/vendor/backbone.js',
                                     '.tmp/scripts/templates.js',
                                     '.tmp/scripts/mapUtility.js',
                                     'js/primary_types.js',
