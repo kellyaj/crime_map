@@ -2,6 +2,7 @@ var map;
 var incidents;
 var mapUtils;
 var incidentTypes;
+mapUtils = new MapUtility();
 
 function initialize() {
   var mapOptions = {
@@ -10,7 +11,6 @@ function initialize() {
     zoom: 11
   };
   map = new google.maps.Map($('[data-id="map-canvas"]')[0], mapOptions);
-  mapUtils = new MapUtility(map);
   incidentTypes = new IncidentTypes();
 }
 

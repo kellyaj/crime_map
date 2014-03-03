@@ -1,5 +1,5 @@
 class MapUtility
-  initialize: (@map) ->
+  initialize: () ->
     @markers = []
 
   setAllMarkers: (map) ->
