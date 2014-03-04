@@ -10,6 +10,7 @@
     ".tmp/scripts/incident.js",
     ".tmp/scripts/incidents.js",
     ".tmp/scripts/infoView.js",
+    ".tmp/scripts/incidentCategories.js",
     ".tmp/spec/**/*.js",
     "spec/**/*.js"
   ]

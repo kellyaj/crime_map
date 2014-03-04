@@ -48,6 +48,7 @@ module.exports = function(grunt) {
                                     'scripts/vendor/underscore.js',
                                     'scripts/vendor/backbone.js',
                                     '.tmp/scripts/templates.js',
+                                    '.tmp/scripts/incidentCategories.js',
                                     '.tmp/scripts/mapUtility.js',
                                     'js/primary_types.js',
                                     '.tmp/scripts/incident.js',
