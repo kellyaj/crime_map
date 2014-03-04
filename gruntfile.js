@@ -50,7 +50,6 @@ module.exports = function(grunt) {
                                     '.tmp/scripts/templates.js',
                                     '.tmp/scripts/incidentCategories.js',
                                     '.tmp/scripts/mapUtility.js',
-                                    'js/primary_types.js',
                                     '.tmp/scripts/incident.js',
                                     '.tmp/scripts/incidents.js',
                                     '.tmp/scripts/infoView.js',
