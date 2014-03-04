@@ -1,7 +1,7 @@
 class Incident extends Backbone.Model
 
   initialize: (modelData) ->
-    @incidentTypes = new IncidentTypes()
+    @incidentCategories = new IncidentCategories()
     @primaryType   = @get('primary_type')
     @setIncidentCategory()
     super(modelData)
@@ -17,7 +17,7 @@ class Incident extends Backbone.Model
     @marker
 
   getIcon: ->
-    @incidentTypes.markerIcon[@incidentCategory]
+    @incidentCategories.markerIcons()[@incidentCategory]
 
   formattedDate: ->
     splitData = @get('date').split("T")
@@ -33,11 +33,11 @@ class Incident extends Backbone.Model
     dateTime
 
   setIncidentCategory: ->
-    if @incidentTypes.isViolent(@primaryType)
+    if @incidentCategories.isViolent(@primaryType)
       @incidentCategory = "VIOLENT"
-    else if @incidentTypes.isProperty(@primaryType)
+    else if @incidentCategories.isProperty(@primaryType)
       @incidentCategory = "PROPERTY"
-    else if @incidentTypes.isPersonal(@primaryType)
+    else if @incidentCategories.isPersonal(@primaryType)
       @incidentCategory = "PERSONAL"
     else
       @incidentCategory = "OTHER"

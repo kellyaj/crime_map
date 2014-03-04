@@ -1,11 +1,11 @@
 class Incidents extends Backbone.Collection
 
   initialize: (modelData)->
-    @limit         = 25
-    @offset        = 0
-    @resourceUrl   = "https://data.cityofchicago.org/resource/"
-    @sheet         = "qnmj-8ku6"
-    @incidentTypes = new IncidentTypes()
+    @limit              = 25
+    @offset             = 0
+    @resourceUrl        = "https://data.cityofchicago.org/resource/"
+    @sheet              = "qnmj-8ku6"
+    @incidentCategories = new IncidentCategories()
     super(modelData)
 
   url: ->
@@ -32,7 +32,7 @@ class Incidents extends Backbone.Collection
       @getModelsByType(selectedType)
 
   getModelsByType: (selectedType) ->
-    incidents = @incidentTypes.category[selectedType]
+    incidents = @incidentCategories.primary()[selectedType]
     _.filter this.models, (model) ->
       _.contains incidents, model.get('primary_type')
 

@@ -1,7 +1,7 @@
 class LegendView extends Backbone.View
 
   initialize: ->
-    @incidentTypes = new IncidentTypes()
+    @incidentCategories = new IncidentCategories()
 
   template: JST['scripts/templates/legend_view.ejs']
 
@@ -12,9 +12,9 @@ class LegendView extends Backbone.View
     @
 
   displayData: ->
-    'violent_icon_url'  : @incidentTypes.markerIcon["VIOLENT"]
-    'property_icon_url' : @incidentTypes.markerIcon["PROPERTY"]
-    'personal_icon_url' : @incidentTypes.markerIcon["PERSONAL"]
-    'other_icon_url'    : @incidentTypes.markerIcon["OTHER"]
+    'violent_icon_url'  : @incidentCategories.markerIcons()["VIOLENT"]
+    'property_icon_url' : @incidentCategories.markerIcons()["PROPERTY"]
+    'personal_icon_url' : @incidentCategories.markerIcons()["PERSONAL"]
+    'other_icon_url'    : @incidentCategories.markerIcons()["OTHER"]
 
 window.LegendView = LegendView
