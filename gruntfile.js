@@ -55,6 +55,7 @@ module.exports = function(grunt) {
                                     '.tmp/scripts/infoView.js',
                                     '.tmp/scripts/aboutView.js',
                                     '.tmp/scripts/legendView.js',
+                                    '.tmp/scripts/mainView.js',
                                     '.tmp/scripts/app.js',
                                    ]
         }

@@ -10,6 +10,9 @@
     ".tmp/scripts/incident.js",
     ".tmp/scripts/incidents.js",
     ".tmp/scripts/infoView.js",
+    ".tmp/scripts/legendView.js",
+    ".tmp/scripts/mapUtility.js",
+    ".tmp/scripts/mainView.js",
     ".tmp/spec/**/*.js",
     "spec/**/*.js"
   ]

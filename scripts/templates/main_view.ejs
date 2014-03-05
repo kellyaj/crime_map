@@ -1,0 +1,35 @@
+<div class="nav">
+  <label> Incident Display Count:
+    <select data-id="incident-count">
+      <option data-count="25">25</option>
+      <option data-count="50">50</option>
+      <option data-count="100">100</option>
+      <option data-count="200">200</option>
+      <option data-count="500">500</option>
+      <option data-count="1000">1000</option>
+    </select>
+  </label>
+  <label> Incident Type:
+    <select data-id="incident-type">
+      <option data-incident-type="ALL">All</option>
+      <option data-incident-type="VIOLENT">Violent</option>
+      <option data-incident-type="PROPERTY">Property</option>
+      <option data-incident-type="PERSONAL">Personal</option>
+      <option data-incident-type="OTHER">Other</option>
+    </select>
+  </label>
+</div>
+<div class="legend">
+  <div class="legend-container" data-id="legend-container"></div>
+</div>
+<div class="flash" data-id="flash"></div>
+<div class="sub-container">
+  <div class="map-container">
+    <div class="map-canvas" data-id="map-canvas"></div>
+  </div>
+  <div class="info-container" data-id="info-container"></div>
+</div>
+<div class="about">
+  <div class="about-button" data-id="about-button">About</div>
+  <div class="about-container" data-id="about-container"></div>
+</div>
