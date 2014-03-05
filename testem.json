@@ -11,6 +11,7 @@
     ".tmp/scripts/incidents.js",
     ".tmp/scripts/infoView.js",
     ".tmp/scripts/legendView.js",
+    ".tmp/scripts/aboutView.js",
     ".tmp/scripts/mapUtility.js",
     ".tmp/scripts/mainView.js",
     ".tmp/spec/**/*.js",

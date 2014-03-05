@@ -33,3 +33,18 @@ describe 'MainView', ->
     @view.render()
 
     expect(mapSpy).toHaveBeenCalled()
+
+  it 'hides the about button on click', ->
+    @view.render()
+
+    @view.$el.find('[data-id="about-button"]').click()
+
+    expect(@view.$el.find('[data-id="about-button"]').css('display')).toBe("none")
+
+  it 'displays the about-container on click of about-button', ->
+    @view.render()
+
+    @view.$el.find('[data-id="about-button"]').click()
+
+    expect(@view.$el.find('[data-id="about-container"]').css('display')).toBe("block")
+    expect(@view.$el.find('[data-id="about-container"]').html()).not.toEqual("")
