@@ -31,22 +31,20 @@ class MainView extends Backbone.View
     @mapUtility = new MapUtility(@map, @google)
 
   createIncidents: ->
-    @incidents.fetch({
-      reset: true,
+    @incidents.fetch
+      reset: true
       success: (data) =>
         @mapUtility.setUpIncidents(data)
-    })
 
   changeIncidentCount: ->
     @displayLoading()
     newLimit = @$el.find('[data-id="incident-count"] option:selected').data('count')
     @incidents.setLimit(newLimit)
-    @incidents.fetch({
-      reset: true,
+    @incidents.fetch
+      reset: true
       success: =>
         @removeLoading()
         @mapUtility.renderFiltered(@incidents)
-  })
 
   flashEl: ->
     @$el.find('[data-id="flash"]')
@@ -55,10 +53,9 @@ class MainView extends Backbone.View
     @flashEl().html("LOADING...")
 
   removeLoading: ->
-    @flashEl().fadeOut("slow", =>
+    @flashEl().fadeOut "slow", =>
       @flashEl().empty()
       @flashEl().css('display', 'inline-block')
-    )
 
   changeIncidentType: (event) ->
     @mapUtility.renderFiltered(@incidents)
