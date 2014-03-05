@@ -16,7 +16,6 @@ $ ->
       @mapUtility.setUpIncidents(data)
   })
 
-
   $('[data-id="incident-count"]').change =>
     $('[data-id="flash"]').html("LOADING...")
     newLimit = $('[data-id="incident-count"] option:selected').data('count')
