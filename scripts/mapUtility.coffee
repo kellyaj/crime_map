@@ -1,5 +1,5 @@
 class MapUtility
-  initialize: () ->
+  constructor: (@map, @google) ->
     @markers = []
 
   setAllMarkers: (map) ->
@@ -13,5 +13,21 @@ class MapUtility
 
   addMarker: (marker) ->
     @markers.push(marker)
+
+  setUpIncidents: (data) =>
+    @clearMarkers()
+    _.each(data.models, (incident) =>
+      incident.generateMarker(@google, @map)
+      incidentView = new InfoView({incident: incident, map: @map, google: @google})
+      @addMarker(incident.marker)
+      @google.maps.event.addListener(incident.marker, "click", ->
+        $('[data-id="info-container"]').html(incidentView.render().$el)
+      ))
+
+  renderFiltered: (incidentCollection) ->
+    incidentType = $('[data-id="incident-type"] option:selected').data('incident-type')
+    filteredCollection = new Incidents(incidentCollection.filterByType(incidentType))
+    @setUpIncidents(filteredCollection)
+
 
 window.MapUtility = MapUtility
