@@ -89,8 +89,16 @@ body {
   padding: 0.6em 0 0 0;
 }
 
+.info-content h2 {
+  padding: 0.6em 0 0 0;
+}
+
 .info-content h3 {
   padding: 0.6em 0 0 0;
+}
+
+.info-content h3 span {
+  padding: 0 0.3em 0 0;
 }
 
 .map-canvas {
@@ -135,12 +143,12 @@ body {
   margin: 10px 0 0 0;
 }
 
-.sub-container h1 {
+.sub-container h1, h2 {
   font-weight: 800;
   font-size: 170%;
 }
 
-.sub-container h2 {
+.sub-container h3 {
   font-weight: 800;
   font-size: 150%;
 }
