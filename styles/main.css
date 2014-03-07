@@ -157,57 +157,6 @@ body {
   vertical-align: middle;
 }
 
-.icon-sun {
-  background-repeat: no-repeat;
-  background-image: url('../images/sun.svg');
-  background-size: 15px 15px;
-  display: inline-block;
-  margin: 0 0 0 0.3em;
-  height: 15px;
-  width: 15px;
-}
-
-.icon-moon {
-  background-repeat: no-repeat;
-  background-image: url('../images/moon.svg');
-  background-size: 15px 15px;
-  display: inline-block;
-  margin: 0 0 0 0.3em;
-  height: 15px;
-  width: 15px;
-}
-
-.icon-cuffs {
-  background-repeat: no-repeat;
-  background-image: url('../images/handcuffs.svg');
-  background-size: 15px 15px;
-  display: inline-block;
-  margin: 0 0 0 0.3em;
-  height: 15px;
-  width: 15px;
-}
-
-.icon-close {
-  background-repeat: no-repeat;
-  background-image: url('../images/close.svg');
-  background-size: 15px 15px;
-  cursor: pointer;
-  display: inline-block;
-  float: left;
-  height: 15px;
-  width: 15px;
-}
-
-.icon-warning {
-  background-repeat: no-repeat;
-  background-image: url('../images/warning.svg');
-  background-size: 15px 15px;
-  display: inline-block;
-  margin: 0 0 0 0.3em;
-  height: 15px;
-  width: 15px;
-}
-
 .about {
   margin: 0.6em 0 0 0;
 }
@@ -264,4 +213,57 @@ body {
 .legend img {
   height: 13px;
   width: 13px;
+}
+
+/* icons */
+
+.icon-sun {
+  background-repeat: no-repeat;
+  background-image: url('../images/sun.svg');
+  background-size: 15px 15px;
+  display: inline-block;
+  margin: 0 0 0 0.3em;
+  height: 15px;
+  width: 15px;
+}
+
+.icon-moon {
+  background-repeat: no-repeat;
+  background-image: url('../images/moon.svg');
+  background-size: 15px 15px;
+  display: inline-block;
+  margin: 0 0 0 0.3em;
+  height: 15px;
+  width: 15px;
+}
+
+.icon-cuffs {
+  background-repeat: no-repeat;
+  background-image: url('../images/handcuffs.svg');
+  background-size: 15px 15px;
+  display: inline-block;
+  margin: 0 0 0 0.3em;
+  height: 15px;
+  width: 15px;
+}
+
+.icon-close {
+  background-repeat: no-repeat;
+  background-image: url('../images/close.svg');
+  background-size: 15px 15px;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 15px;
+  width: 15px;
+}
+
+.icon-warning {
+  background-repeat: no-repeat;
+  background-image: url('../images/warning.svg');
+  background-size: 15px 15px;
+  display: inline-block;
+  margin: 0 0 0 0.3em;
+  height: 15px;
+  width: 15px;
 }
