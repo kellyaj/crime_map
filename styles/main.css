@@ -55,7 +55,12 @@ body {
 }
 
 .arrest-made{
-  color: blue;
+  color: #4040f6;
+  display: inline-block;
+}
+
+.no-arrest {
+  color: #cd2026;
   display: inline-block;
 }
 
@@ -82,10 +87,7 @@ body {
   height: 97%;
 }
 
-.info-content h1 {
-}
-
-.info-content h2 {
+.info-content h2, h3 {
   padding: 0.6em 0 0 0;
 }
 
@@ -121,14 +123,11 @@ body {
   display: inline-block;
   padding: 0.6em;
 }
+
 .nav label {
   color: #555;
   font-family: arial;
   font-size: 0.9em;
-}
-.no-arrest {
-  color: red;
-  display: inline-block;
 }
 
 .pano {
