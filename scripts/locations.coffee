@@ -184,20 +184,20 @@ class Locations
       }
 
   iconSpans: ->
-    "BANK"       : '<span class="location-icon icon-bank"></span>'
-    "BAR"        : '<span class="location-icon icon-bar"></span>'
-    "BUS"        : '<span class="location-icon icon-bus"></span>'
-    "BUSINESS"   : '<span class="location-icon icon-business"></span>'
-    "HOME"       : '<span class="location-icon icon-home"></span>'
-    "HOSPITAL"   : '<span class="location-icon icon-hospital"></span>'
-    "HOTEL"      : '<span class="location-icon icon-hotel"></span>'
-    "PARK"       : '<span class="location-icon icon-park"></span>'
-    "RESTAURANT" : '<span class="location-icon icon-restaurant"></span>'
-    "SCHOOL"     : '<span class="location-icon icon-school"></span>'
-    "STREET"     : '<span class="location-icon icon-street"></span>'
-    "TAXI"       : '<span class="location-icon icon-taxi"></span>'
-    "TRAIN"      : '<span class="location-icon icon-train"></span>'
-    "OTHER"      : '<span class="location-icon icon-other"></span>'
+    "BANK"       : '<span class="info-view-icon icon-bank"></span>'
+    "BAR"        : '<span class="info-view-icon icon-bar"></span>'
+    "BUS"        : '<span class="info-view-icon icon-bus"></span>'
+    "BUSINESS"   : '<span class="info-view-icon icon-business"></span>'
+    "HOME"       : '<span class="info-view-icon icon-home"></span>'
+    "HOSPITAL"   : '<span class="info-view-icon icon-hospital"></span>'
+    "HOTEL"      : '<span class="info-view-icon icon-hotel"></span>'
+    "PARK"       : '<span class="info-view-icon icon-park"></span>'
+    "RESTAURANT" : '<span class="info-view-icon icon-restaurant"></span>'
+    "SCHOOL"     : '<span class="info-view-icon icon-school"></span>'
+    "STREET"     : '<span class="info-view-icon icon-street"></span>'
+    "TAXI"       : '<span class="info-view-icon icon-taxi"></span>'
+    "TRAIN"      : '<span class="info-view-icon icon-train"></span>'
+    "OTHER"      : '<span class="info-view-icon icon-other"></span>'
 
 
 window.Locations = Locations
