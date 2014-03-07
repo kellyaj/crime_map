@@ -36,6 +36,14 @@ class Incidents extends Backbone.Collection
     _.filter this.models, (model) ->
       _.contains incidents, model.get('primary_type')
 
+  filterByTimeOfDay: (selectedTime) ->
+    if selectedTime == 'DAY'
+      @dayIncidents()
+    else if selectedTime == 'NIGHT'
+      @nightIncidents()
+    else
+      @models
+
   dayIncidents: ->
     _.filter this.models, (model) ->
       model.get('time_of_day') == "day"

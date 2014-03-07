@@ -9,6 +9,7 @@ class MainView extends Backbone.View
   events:
     'change [data-id="incident-count"]' : 'changeIncidentCount'
     'change [data-id="incident-type"]'  : 'changeIncidentType'
+    'change [data-id="time-of-day"]'    : 'changeTimeOfDay'
     'click [data-id="about-button"]'    : 'showAboutView'
 
   render: ->
@@ -59,6 +60,11 @@ class MainView extends Backbone.View
 
   changeIncidentType: (event) ->
     @mapUtility.renderFiltered(@incidents)
+
+  changeTimeOfDay: (event) ->
+    timeSelection = @$el.find('[data-id="time-of-day"] option:selected').data('time-of-day')
+    @mapUtility.renderFiltered(new Incidents(@incidents.filterByTimeOfDay(timeSelection)))
+
 
   showAboutView: ->
     @$el.find('[data-id="about-button"]').hide()
