@@ -1,3 +1,104 @@
+class Locations
+
+  category: ->
+    "BANK": [
+        "COIN OPERATED MACHINE",
+        "ATM (AUTOMATIC TELLER MACHINE)",
+        "BANK",
+        "CREDIT UNION",
+        "CURRENCY EXCHANGE",
+        "SAVINGS AND LOAN",
+      ],
+    "BAR": [
+        "BAR OR TAVERN",
+        "TAVERN/LIQUOR STORE"
+      ],
+    "BUS": [
+        "CTA BUS",
+        "CTA BUS STOP"
+      ],
+    "BUSINESS": [
+        "APPLIANCE STORE",
+        "ANIMAL HOSPITAL",
+        "ATHLETIC CLUB",
+        "BARBERSHOP",
+        "BOWLING ALLEY",
+        "CAR WASH",
+        "CLEANING STORE",
+        "COMMERCIAL / BUSINESS OFFICE",
+        "CONVENIENCE STORE",
+        "DEPARTMENT STORE",
+        "DRUG STORE",
+        "GAS STATION",
+        "GROCERY FOOD STORE",
+        "PAWN SHOP",
+        "SMALL RETAIL STORE"
+      ],
+    "HOME": [
+        "APARTMENT",
+        "CHA APARTMENT",
+        "RESIDENCE-GARAGE",
+        "RESIDENCE PORCH/HALLWAY",
+        "RESIDENTIAL YARD (FRONT/BACK)",
+        "HOUSE",
+        "RESIDENCE"
+      ],
+    "HOSPITAL": [
+        "HOSPITAL BUILDING/GROUNDS",
+        "MEDICAL/DENTAL OFFICE"
+      ],
+    "HOTEL": [
+        "HOTEL/MOTEL"
+      ],
+    "PARK": [
+        "PARK PROPERTY",
+        "FOREST PRESERVE",
+        "LAKEFRONT/WATERFRONT/RIVERBANK"
+      ],
+    "RESTAURANT": [
+         "RESTAURANT"
+      ],
+    "SCHOOL": [
+        "COLLEGE/UNIVERSITY GROUNDS",
+        "COLLEGE/UNIVERSITY RESIDENCE HALL",
+        "SCHOOL, PRIVATE, BUILDING",
+        "SCHOOL, PRIVATE, GROUNDS",
+        "SCHOOL, PUBLIC, BUILDING",
+        "SCHOOL, PUBLIC, GROUNDS"
+      ],
+    "STREET": [
+        "ALLEY",
+        "BRIDGE",
+        "SIDEWALK",
+        "STREET",
+        "HIGHWAY/EXPRESSWAY",
+      ],
+    "TAXI": [
+        "TAXICAB"
+      ],
+    "TRAIN": [
+        "CTA PLATFORM",
+        "CTA TRAIN",
+        "OTHER RAILROAD PROP / TRAIN DEPOT",
+      ]
+
+  iconSpans: ->
+    "BANK"       : '<span class="location-icon icon-bank"></span>'
+    "BAR"        : '<span class="location-icon icon-bar"></span>'
+    "BUS"        : '<span class="location-icon icon-bus"></span>'
+    "BUSINESS"   : '<span class="location-icon icon-business"></span>'
+    "HOME"       : '<span class="location-icon icon-home"></span>'
+    "HOSPITAL"   : '<span class="location-icon icon-hospital"></span>'
+    "HOTEL"      : '<span class="location-icon icon-hotel"></span>'
+    "PARK"       : '<span class="location-icon icon-park"></span>'
+    "RESTAURANT" : '<span class="location-icon icon-restaurant"></span>'
+    "SCHOOL"     : '<span class="location-icon icon-school"></span>'
+    "STREET"     : '<span class="location-icon icon-street"></span>'
+    "TAXI"       : '<span class="location-icon icon-taxi"></span>'
+    "TRAIN"      : '<span class="location-icon icon-train"></span>'
+    "OTHER"      : '<span class="location-icon icon-other"></span>'
+
+window.Locations = Locations
 
 "AIRCRAFT"
 "AIRPORT/AIRCRAFT"
@@ -12,9 +113,7 @@
 "AIRPORT TERMINAL UPPER LEVEL - SECURE AREA"
 "AIRPORT VENDING ESTABLISHMENT"
 
-"ALLEY"
 "ABANDONED BUILDING"
-"BRIDGE"
 "CEMETARY"
 "VACANT LOT/LAND"
 
@@ -22,10 +121,17 @@
 
 "CHURCH/SYNAGOGUE/PLACE OF WORSHIP"
 
+"BRIDGE"
+"ALLEY"
+"SIDEWALK"
+"STREET"
+
 "APARTMENT"
 "CHA APARTMENT"
 "CHA HALLWAY/STAIRWELL/ELEVATOR"
 "CHA PARKING LOT/GROUNDS"
+"HOUSE"
+"RESIDENCE"
 
 "PARKING LOT/GARAGE(NON.RESID.)"
 "POLICE FACILITY/VEH PARKING LOT"
@@ -59,16 +165,12 @@
 
 "SPORTS ARENA/STADIUM"
 
-
 "COLLEGE/UNIVERSITY GROUNDS"
 "COLLEGE/UNIVERSITY RESIDENCE HALL"
 "SCHOOL, PRIVATE, BUILDING"
 "SCHOOL, PRIVATE, GROUNDS"
 "SCHOOL, PUBLIC, BUILDING"
 "SCHOOL, PUBLIC, GROUNDS"
-
-"SIDEWALK"
-"STREET"
 
 "DAY CARE CENTER"
 
@@ -99,25 +201,23 @@
 "HOSPITAL BUILDING/GROUNDS"
 "MEDICAL/DENTAL OFFICE"
 
+"NURSING HOME/RETIREMENT HOME"
+"NURSING HOME"
+
 "PORCH"
 "POOL ROOM"
 "OTHER COMMERCIAL TRANSPORTATION"
 "AUTO"
 "DELIVERY TRUCK"
 "DRIVEWAY - RESIDENTIAL"
-"FOREST PRESERVE"
-"LAKEFRONT/WATERFRONT/RIVERBANK"
 "MOVIE HOUSE/THEATER"
-"NURSING HOME/RETIREMENT HOME"
-"NURSING HOME"
 "OTHER"
 
 "PARK PROPERTY"
+"FOREST PRESERVE"
+"LAKEFRONT/WATERFRONT/RIVERBANK"
 
 "HOTEL/MOTEL"
-
-"HOUSE"
-"RESIDENCE"
 
 "JAIL / LOCK-UP FACILITY"
 
