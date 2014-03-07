@@ -2,13 +2,34 @@ describe 'Incidents', ->
 
   beforeEach ->
     @fakeCrimes = [
-      {"primary_type" : "ARSON"},
-      {"primary_type" : "ARSON"},
-      {"primary_type" : "HOMICIDE"},
-      {"primary_type" : "ASSAULT"},
-      {"primary_type" : "BATTERY"},
-      {"primary_type" : "THEFT"},
-      {"primary_type" : "STALKING"},
+      {
+        "primary_type" : "ARSON",
+        "date"         : "2014-02-01T03:00:00"
+      },
+      {
+        "primary_type" : "ARSON",
+        "date"         : "2014-02-01T03:00:00"
+      },
+      {
+        "primary_type" : "HOMICIDE",
+        "date"         : "2014-02-01T15:00:00"
+      },
+      {
+        "primary_type" : "ASSAULT",
+        "date"         : "2014-02-01T15:00:00"
+      },
+      {
+        "primary_type" : "BATTERY",
+        "date"         : "2014-02-01T15:00:00"
+      },
+      {
+        "primary_type" : "THEFT",
+        "date"         : "2014-02-01T03:00:00"
+      },
+      {
+        "primary_type" : "STALKING",
+        "date"         : "2014-02-01T03:00:00"
+      },
     ]
     @collection = new Incidents(@fakeCrimes)
 
@@ -45,3 +66,7 @@ describe 'Incidents', ->
     expect(@collection.filterByType("PROPERTY").length).toEqual(1)
     expect(@collection.filterByType("PERSONAL").length).toEqual(1)
     expect(@collection.filterByType("OTHER").length).toEqual(2)
+
+  it 'filters by day or night', ->
+    expect(@collection.dayIncidents().length).toEqual(3)
+    expect(@collection.nightIncidents().length).toEqual(4)

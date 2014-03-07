@@ -34,8 +34,12 @@ describe 'Incident', ->
     @fakeGoogle.maps.LatLng = ->
     @fakeGoogle.maps.Marker = ->
     @incident = new Incident(@fakeIncident)
-    @_createIncident = (primaryType) ->
-      newIncident = new Incident({"primary_type": primaryType})
+    @_createIncident = (options) ->
+      date = options.date || "2014-02-01T05:00:00"
+      newIncident = new Incident({
+        "primary_type" : options.primaryType,
+        "date"         : date
+      })
       newIncident.setIncidentCategory()
       newIncident
 
@@ -55,18 +59,26 @@ describe 'Incident', ->
     expect(@incident.isDayTime("03:45")).toEqual(false)
 
   it 'adds the moon icon span when the time is considered night', ->
-    expect(@incident.formattedDate()).toContain('icon-moon')
+    nightIncident = @_createIncident({date: "2014-02-01T03:00:00"})
+    expect(nightIncident.formattedDate()).toContain('icon-moon')
 
   it 'adds the sun icon span when the time is considered day', ->
-    @incident.set('date', "2014-02-01T09:00:00")
-    expect(@incident.formattedDate()).toContain('icon-sun')
+    dayIncident = @_createIncident({date: "2014-02-01T15:00:00"})
+    expect(dayIncident.formattedDate()).toContain('icon-sun')
 
   it 'sets the incidentCategory based on the primaryType', ->
-    violentIncident = @_createIncident("ASSAULT")
-    personalIncident = @_createIncident("STALKING")
-    propertyIncident = @_createIncident("THEFT")
-    otherIncident = @_createIncident("ARSON")
+    violentIncident = @_createIncident({primaryType: "ASSAULT"})
+    personalIncident = @_createIncident({primaryType: "STALKING"})
+    propertyIncident = @_createIncident({primaryType: "THEFT"})
+    otherIncident = @_createIncident({primaryType: "ARSON"})
     expect(violentIncident.incidentCategory).toEqual("VIOLENT")
     expect(personalIncident.incidentCategory).toEqual("PERSONAL")
     expect(propertyIncident.incidentCategory).toEqual("PROPERTY")
     expect(otherIncident.incidentCategory).toEqual("OTHER")
+
+  it 'sets the time_of_day on initialize', ->
+    dayIncident = @_createIncident({date: "2014-02-01T15:00:00"})
+    nightIncident = @_createIncident({date: "2014-02-01T03:00:00"})
+
+    expect(dayIncident.get('time_of_day')).toEqual('day')
+    expect(nightIncident.get('time_of_day')).toEqual('night')
