@@ -220,31 +220,31 @@ body {
 .icon-sun {
   background-repeat: no-repeat;
   background-image: url('../images/sun.svg');
-  background-size: 15px 15px;
+  background-size: 35px 35px;
   display: inline-block;
   margin: 0 0 0 0.3em;
-  height: 15px;
-  width: 15px;
+  height: 35px;
+  width: 35px;
 }
 
 .icon-moon {
   background-repeat: no-repeat;
   background-image: url('../images/moon.svg');
-  background-size: 15px 15px;
+  background-size: 35px 35px;
   display: inline-block;
   margin: 0 0 0 0.3em;
-  height: 15px;
-  width: 15px;
+  height: 35px;
+  width: 35px;
 }
 
 .icon-cuffs {
   background-repeat: no-repeat;
   background-image: url('../images/handcuffs.svg');
-  background-size: 15px 15px;
+  background-size: 35px 35px;
   display: inline-block;
   margin: 0 0 0 0.3em;
-  height: 15px;
-  width: 15px;
+  height: 35px;
+  width: 35px;
 }
 
 .icon-close {
@@ -261,11 +261,11 @@ body {
 .icon-warning {
   background-repeat: no-repeat;
   background-image: url('../images/warning.svg');
-  background-size: 15px 15px;
+  background-size: 35px 35px;
   display: inline-block;
   margin: 0 0 0 0.3em;
-  height: 15px;
-  width: 15px;
+  height: 35px;
+  width: 35px;
 }
 
 /* location icons */
@@ -278,30 +278,30 @@ body {
   width: 35px;
 }
 
-.icon-bank { background-image: url('../images/warning.svg'); }
+.icon-bank { background-image: url('../images/bank.svg'); }
 
-.icon-bar { background-image: url('../images/warning.svg'); }
+.icon-bar { background-image: url('../images/bar.svg'); }
 
-.icon-bus { background-image: url('../images/warning.svg'); }
+.icon-bus { background-image: url('../images/bus.svg'); }
 
-.icon-business { background-image: url('../images/warning.svg'); }
+.icon-business { background-image: url('../images/store.svg'); }
 
-.icon-home { background-image: url('../images/warning.svg'); }
+.icon-home { background-image: url('../images/home.svg'); }
 
-.icon-hospital { background-image: url('../images/warning.svg'); }
+.icon-hospital { background-image: url('../images/hospital.svg'); }
 
-.icon-hotel { background-image: url('../images/warning.svg'); }
+.icon-hotel { background-image: url('../images/hotel.svg'); }
 
-.icon-park { background-image: url('../images/warning.svg'); }
+.icon-park { background-image: url('../images/park.svg'); }
 
-.icon-restaurant { background-image: url('../images/warning.svg'); }
+.icon-restaurant { background-image: url('../images/restaurant.svg'); }
 
-.icon-school { background-image: url('../images/warning.svg'); }
+.icon-school { background-image: url('../images/school.svg'); }
 
-.icon-street { background-image: url('../images/warning.svg'); }
+.icon-street { background-image: url('../images/road.svg'); }
 
-.icon-taxi { background-image: url('../images/warning.svg'); }
+.icon-taxi { background-image: url('../images/taxi.svg'); }
 
-.icon-train { background-image: url('../images/warning.svg'); }
+.icon-train { background-image: url('../images/train.svg'); }
 
-.icon-other { background-image: url('../images/warning.svg'); }
+.icon-other { background-image: url('../images/other-location.svg'); }
