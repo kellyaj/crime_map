@@ -26,11 +26,12 @@ class Incident extends Backbone.Model
     time = [splitTime[0], splitTime[1]].join(":")
     dateSplit = date.split("-")
     dateTime = [dateSplit[1], dateSplit[2], dateSplit[0]].join("/") + " " + time
+    result = ""
     if @isDayTime(time)
-      dateTime += '<span class="icon-sun"></span>'
+      result += '<span class="icon-sun"></span>'
     else
-      dateTime += '<span class="icon-moon"></span>'
-    dateTime
+      result += '<span class="icon-moon"></span>'
+    result += dateTime
 
   setIncidentCategory: ->
     if @incidentCategories.isViolent(@primaryType)
