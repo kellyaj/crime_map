@@ -33,10 +33,10 @@ class InfoView extends Backbone.View
   setLocationCategory: ->
     @locationCategory = @locations.getCategoryFor(@incident.get('location_description'))
   arrestMadeHTML: ->
-    '<div class="arrest-made"><span class="icon-cuffs"></span> ARREST MADE</div>'
+    '<div class="arrest-made"><span class="icon-cuffs"></span>ARREST MADE</div>'
 
   noArrestMadeHTML: ->
-    '<div class="no-arrest"><span class="icon-warning"></span> NO ARREST</div>'
+    '<div class="no-arrest"><span class="icon-warning"></span>NO ARREST</div>'
 
   getLocationIcon: ->
     @locationCategory.iconSpan
