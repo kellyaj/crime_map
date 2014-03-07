@@ -55,11 +55,11 @@ describe 'Incident', ->
     expect(@incident.isDayTime("03:45")).toEqual(false)
 
   it 'adds the moon icon span when the time is considered night', ->
-    expect(@incident.formattedDate()).toContain('class="icon-moon"')
+    expect(@incident.formattedDate()).toContain('icon-moon')
 
   it 'adds the sun icon span when the time is considered day', ->
     @incident.set('date', "2014-02-01T09:00:00")
-    expect(@incident.formattedDate()).toContain('class="icon-sun"')
+    expect(@incident.formattedDate()).toContain('icon-sun')
 
   it 'sets the incidentCategory based on the primaryType', ->
     violentIncident = @_createIncident("ASSAULT")

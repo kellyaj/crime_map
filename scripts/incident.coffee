@@ -28,9 +28,9 @@ class Incident extends Backbone.Model
     dateTime = [dateSplit[1], dateSplit[2], dateSplit[0]].join("/") + " " + time
     result = ""
     if @isDayTime(time)
-      result += '<span class="icon-sun"></span>'
+      result += '<span class="icon-sun info-view-icon"></span>'
     else
-      result += '<span class="icon-moon"></span>'
+      result += '<span class="icon-moon info-view-icon"></span>'
     result += dateTime
 
   setIncidentCategory: ->

@@ -224,36 +224,6 @@ body {
 
 /* icons */
 
-.icon-sun {
-  background-repeat: no-repeat;
-  background-image: url('../images/sun.svg');
-  background-size: 35px 35px;
-  display: inline-block;
-  margin: 0 0 0 0.3em;
-  height: 35px;
-  width: 35px;
-}
-
-.icon-moon {
-  background-repeat: no-repeat;
-  background-image: url('../images/moon.svg');
-  background-size: 35px 35px;
-  display: inline-block;
-  margin: 0 0 0 0.3em;
-  height: 35px;
-  width: 35px;
-}
-
-.icon-cuffs {
-  background-repeat: no-repeat;
-  background-image: url('../images/handcuffs.svg');
-  background-size: 35px 35px;
-  display: inline-block;
-  margin: 0 0 0 0.3em;
-  height: 35px;
-  width: 35px;
-}
-
 .icon-close {
   background-repeat: no-repeat;
   background-image: url('../images/close.svg');
@@ -265,25 +235,25 @@ body {
   width: 15px;
 }
 
-.icon-warning {
+/* info view icons */
+
+.info-view-icon {
   background-repeat: no-repeat;
-  background-image: url('../images/warning.svg');
   background-size: 35px 35px;
   display: inline-block;
-  margin: 0 0 0 0.3em;
   height: 35px;
   width: 35px;
 }
+
+.icon-sun { background-image: url('../images/sun.svg'); }
+
+.icon-moon { background-image: url('../images/moon.svg'); }
+
+.icon-cuffs { background-image: url('../images/handcuffs.svg'); }
+
+.icon-warning { background-image: url('../images/warning.svg'); }
 
 /* location icons */
-
-.location-icon {
-  background-repeat: no-repeat;
-  background-size: 35px 35px;
-  display: inline-block;
-  height: 35px;
-  width: 35px;
-}
 
 .icon-bank { background-image: url('../images/bank.svg'); }
 
