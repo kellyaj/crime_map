@@ -267,3 +267,41 @@ body {
   height: 15px;
   width: 15px;
 }
+
+/* location icons */
+
+.location-icon {
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+}
+
+.icon-bank { background-image: url('../images/warning.svg'); }
+
+.icon-bar { background-image: url('../images/warning.svg'); }
+
+.icon-bus { background-image: url('../images/warning.svg'); }
+
+.icon-business { background-image: url('../images/warning.svg'); }
+
+.icon-home { background-image: url('../images/warning.svg'); }
+
+.icon-hospital { background-image: url('../images/warning.svg'); }
+
+.icon-hotel { background-image: url('../images/warning.svg'); }
+
+.icon-park { background-image: url('../images/warning.svg'); }
+
+.icon-restaurant { background-image: url('../images/warning.svg'); }
+
+.icon-school { background-image: url('../images/warning.svg'); }
+
+.icon-street { background-image: url('../images/warning.svg'); }
+
+.icon-taxi { background-image: url('../images/warning.svg'); }
+
+.icon-train { background-image: url('../images/warning.svg'); }
+
+.icon-other { background-image: url('../images/warning.svg'); }
