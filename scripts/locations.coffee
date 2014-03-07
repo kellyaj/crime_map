@@ -1,23 +1,39 @@
 class Locations
 
+  getCategoryFor: (location) ->
+    locationCategory = _.find @category(), (category) =>
+      _.contains(category.members, location)
+    if locationCategory then locationCategory.name else "OTHER"
+
   category: ->
-    "BANK": [
+    "BANK": {
+      name: "BANK",
+      members: [
         "COIN OPERATED MACHINE",
         "ATM (AUTOMATIC TELLER MACHINE)",
         "BANK",
         "CREDIT UNION",
         "CURRENCY EXCHANGE",
-        "SAVINGS AND LOAN",
-      ],
-    "BAR": [
+        "SAVINGS AND LOAN"
+        ]
+      },
+    "BAR": {
+      name: "BAR",
+      members: [
         "BAR OR TAVERN",
         "TAVERN/LIQUOR STORE"
-      ],
-    "BUS": [
+        ]
+      },
+    "BUS": {
+      name: "BUS",
+      members: [
         "CTA BUS",
         "CTA BUS STOP"
-      ],
-    "BUSINESS": [
+        ]
+      },
+    "BUSINESS": {
+      name: "BUSINESS",
+      members: [
         "APPLIANCE STORE",
         "ANIMAL HOSPITAL",
         "ATHLETIC CLUB",
@@ -33,8 +49,11 @@ class Locations
         "GROCERY FOOD STORE",
         "PAWN SHOP",
         "SMALL RETAIL STORE"
-      ],
-    "HOME": [
+        ]
+      },
+    "HOME": {
+      name: "HOME",
+      members: [
         "APARTMENT",
         "CHA APARTMENT",
         "RESIDENCE-GARAGE",
@@ -42,46 +61,73 @@ class Locations
         "RESIDENTIAL YARD (FRONT/BACK)",
         "HOUSE",
         "RESIDENCE"
-      ],
-    "HOSPITAL": [
+        ]
+      },
+    "HOSPITAL": {
+      name: "HOSPITAL",
+      members: [
         "HOSPITAL BUILDING/GROUNDS",
         "MEDICAL/DENTAL OFFICE"
-      ],
-    "HOTEL": [
+        ]
+      },
+    "HOTEL": {
+      name: "HOTEL",
+      members: [
         "HOTEL/MOTEL"
-      ],
-    "PARK": [
+        ]
+      },
+    "PARK": {
+      name: "PARK",
+      members: [
         "PARK PROPERTY",
         "FOREST PRESERVE",
         "LAKEFRONT/WATERFRONT/RIVERBANK"
-      ],
-    "RESTAURANT": [
+        ]
+      },
+    "RESTAURANT": {
+      name: "RESTAURANT",
+      members: [
          "RESTAURANT"
-      ],
-    "SCHOOL": [
+        ]
+      },
+    "SCHOOL": {
+      name: "SCHOOL",
+      members: [
         "COLLEGE/UNIVERSITY GROUNDS",
         "COLLEGE/UNIVERSITY RESIDENCE HALL",
         "SCHOOL, PRIVATE, BUILDING",
         "SCHOOL, PRIVATE, GROUNDS",
         "SCHOOL, PUBLIC, BUILDING",
         "SCHOOL, PUBLIC, GROUNDS"
-      ],
-    "STREET": [
+        ]
+      },
+    "STREET": {
+      name: "STREET",
+      members: [
         "ALLEY",
         "BRIDGE",
         "SIDEWALK",
         "STREET",
-        "HIGHWAY/EXPRESSWAY",
-      ],
-    "TAXI": [
+        "HIGHWAY/EXPRESSWAY"
+        ]
+      },
+    "TAXI": {
+      name: "TAXI",
+      members: [
         "TAXICAB"
-      ],
-    "TRAIN": [
+        ]
+      },
+    "TRAIN": {
+      name: "TRAIN",
+      members: [
         "CTA PLATFORM",
         "CTA TRAIN",
-        "OTHER RAILROAD PROP / TRAIN DEPOT",
-      ]
-    "OTHER": [
+        "OTHER RAILROAD PROP / TRAIN DEPOT"
+        ]
+      },
+    "OTHER": {
+      name: "OTHER",
+      members: [
         "AIRCRAFT",
         "AIRPORT/AIRCRAFT",
         "AIRPORT BUILDING NON-TERMINAL - NON-SECURE AREA",
@@ -120,7 +166,8 @@ class Locations
         "PARKING LOT/GARAGE(NON.RESID.)",
         "POLICE FACILITY/VEH PARKING LOT",
         "RESIDENCE-GARAGE"
-      ]
+        ]
+      }
 
   iconSpans: ->
     "BANK"       : '<span class="location-icon icon-bank"></span>'

@@ -4,6 +4,7 @@
   "src_files": [
     ".tmp/scripts/templates.js",
     ".tmp/scripts/incidentCategories.js",
+    ".tmp/scripts/locations.js",
     "scripts/vendor/jquery-1.10.2.min.js",
     "scripts/vendor/underscore.js",
     "scripts/vendor/backbone.js",
