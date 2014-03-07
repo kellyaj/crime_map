@@ -3,11 +3,12 @@ class Locations
   getCategoryFor: (location) ->
     locationCategory = _.find @category(), (category) =>
       _.contains(category.members, location)
-    if locationCategory then locationCategory.name else "OTHER"
+    if locationCategory then locationCategory else @category()["OTHER"]
 
   category: ->
     "BANK": {
       name: "BANK",
+      iconSpan: '<span class="location-icon icon-bank"></span>',
       members: [
         "COIN OPERATED MACHINE",
         "ATM (AUTOMATIC TELLER MACHINE)",
@@ -19,6 +20,7 @@ class Locations
       },
     "BAR": {
       name: "BAR",
+      iconSpan: '<span class="location-icon icon-bar"></span>',
       members: [
         "BAR OR TAVERN",
         "TAVERN/LIQUOR STORE"
@@ -26,6 +28,7 @@ class Locations
       },
     "BUS": {
       name: "BUS",
+      iconSpan: '<span class="location-icon icon-bus"></span>',
       members: [
         "CTA BUS",
         "CTA BUS STOP"
@@ -33,6 +36,7 @@ class Locations
       },
     "BUSINESS": {
       name: "BUSINESS",
+      iconSpan: '<span class="location-icon icon-business"></span>',
       members: [
         "APPLIANCE STORE",
         "ANIMAL HOSPITAL",
@@ -53,6 +57,7 @@ class Locations
       },
     "HOME": {
       name: "HOME",
+      iconSpan: '<span class="location-icon icon-home"></span>',
       members: [
         "APARTMENT",
         "CHA APARTMENT",
@@ -65,6 +70,7 @@ class Locations
       },
     "HOSPITAL": {
       name: "HOSPITAL",
+      iconSpan: '<span class="location-icon icon-hospital"></span>',
       members: [
         "HOSPITAL BUILDING/GROUNDS",
         "MEDICAL/DENTAL OFFICE"
@@ -72,12 +78,14 @@ class Locations
       },
     "HOTEL": {
       name: "HOTEL",
+      iconSpan: '<span class="location-icon icon-hotel"></span>',
       members: [
         "HOTEL/MOTEL"
         ]
       },
     "PARK": {
       name: "PARK",
+      iconSpan: '<span class="location-icon icon-park"></span>',
       members: [
         "PARK PROPERTY",
         "FOREST PRESERVE",
@@ -86,12 +94,14 @@ class Locations
       },
     "RESTAURANT": {
       name: "RESTAURANT",
+      iconSpan: '<span class="location-icon icon-restaurant"></span>',
       members: [
          "RESTAURANT"
         ]
       },
     "SCHOOL": {
       name: "SCHOOL",
+      iconSpan: '<span class="location-icon icon-school"></span>',
       members: [
         "COLLEGE/UNIVERSITY GROUNDS",
         "COLLEGE/UNIVERSITY RESIDENCE HALL",
@@ -103,6 +113,7 @@ class Locations
       },
     "STREET": {
       name: "STREET",
+      iconSpan: '<span class="location-icon icon-street"></span>',
       members: [
         "ALLEY",
         "BRIDGE",
@@ -113,12 +124,14 @@ class Locations
       },
     "TAXI": {
       name: "TAXI",
+      iconSpan: '<span class="location-icon icon-taxi"></span>',
       members: [
         "TAXICAB"
         ]
       },
     "TRAIN": {
       name: "TRAIN",
+      iconSpan: '<span class="location-icon icon-train"></span>',
       members: [
         "CTA PLATFORM",
         "CTA TRAIN",
@@ -127,6 +140,7 @@ class Locations
       },
     "OTHER": {
       name: "OTHER",
+      iconSpan: '<span class="location-icon icon-other"></span>',
       members: [
         "AIRCRAFT",
         "AIRPORT/AIRCRAFT",
@@ -184,6 +198,7 @@ class Locations
     "TAXI"       : '<span class="location-icon icon-taxi"></span>'
     "TRAIN"      : '<span class="location-icon icon-train"></span>'
     "OTHER"      : '<span class="location-icon icon-other"></span>'
+
 
 window.Locations = Locations
 

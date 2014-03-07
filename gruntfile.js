@@ -49,6 +49,7 @@ module.exports = function(grunt) {
                                     'scripts/vendor/backbone.js',
                                     '.tmp/scripts/templates.js',
                                     '.tmp/scripts/incidentCategories.js',
+                                    '.tmp/scripts/locations.js',
                                     '.tmp/scripts/mapUtility.js',
                                     '.tmp/scripts/incident.js',
                                     '.tmp/scripts/incidents.js',

@@ -67,3 +67,10 @@ describe 'InfoView', ->
 
     expect(panoSpy).toHaveBeenCalled()
     expect(streetViewSpy).toHaveBeenCalled()
+
+  it 'gets the location icon span', ->
+    locations = new Locations()
+    locationCategory = locations.getCategoryFor(@incidentModel.get('location_description'))
+
+    @view.render()
+    expect(@view.$el.html()).toContain(locationCategory.iconSpan)
