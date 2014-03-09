@@ -3,17 +3,20 @@ class MainView extends Backbone.View
   initialize: (options) ->
     @google = options.google
     @incidents = options.incidents
+    @incidentCategories = new IncidentCategories()
 
   template: JST['scripts/templates/main_view.ejs']
 
   events:
-    'change [data-id="incident-count"]' : 'changeIncidentCount'
-    'change [data-id="incident-type"]'  : 'changeIncidentType'
-    'change [data-id="time-of-day"]'    : 'changeTimeOfDay'
-    'click [data-id="about-button"]'    : 'showAboutView'
+    'change [data-id="incident-count"]'   : 'changeIncidentCount'
+    'change [data-id="incident-type"]'    : 'changeIncidentType'
+    'change [data-id="time-of-day"]'      : 'changeTimeOfDay'
+    'click [data-id="about-button"]'      : 'showAboutView'
+    'click [data-id="filter-category"]'   : 'changeCategories'
+    'click [data-id="deselect-all"]'      : 'deselectAllCategories'
 
   render: ->
-    @$el.html(@template())
+    @$el.html(@template({categories: @incidentCategories.displayList()}))
     @renderMap()
     @renderLegendView()
     @createIncidents()
@@ -65,10 +68,21 @@ class MainView extends Backbone.View
     timeSelection = @$el.find('[data-id="time-of-day"] option:selected').data('time-of-day')
     @mapUtility.renderFiltered(new Incidents(@incidents.filterByTimeOfDay(timeSelection)))
 
-
   showAboutView: ->
     @$el.find('[data-id="about-button"]').hide()
     @$el.find('[data-id="about-container"]').show()
     @$el.find('[data-id="about-container"]').html(new AboutView().render().$el)
+
+  changeCategories: ->
+    @incidents.categoryArray = []
+    checkedCategories = @$el.find('[name="category-checkbox"]:checked')
+    _.each checkedCategories, (category) =>
+      @incidents.categoryArray.push(@$el.find(category).data('category-name'))
+    @createIncidents()
+
+  deselectAllCategories: ->
+    checkedCategories = @$el.find('[name="category-checkbox"]:checked')
+    _.each checkedCategories, (category) =>
+      @$el.find(category).prop('checked', false)
 
 window.MainView = MainView
