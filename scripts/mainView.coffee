@@ -36,9 +36,11 @@ class MainView extends Backbone.View
     @mapUtility = new MapUtility(@map, @google)
 
   createIncidents: ->
+    @displayLoading()
     @incidents.fetch
       reset: true
       success: (data) =>
+        @removeLoading()
         @mapUtility.setUpIncidents(data)
 
   changeIncidentCount: ->
