@@ -1,6 +1,7 @@
 class Incidents extends Backbone.Collection
 
   initialize: (modelData)->
+    @categoryArray      = []
     @limit              = 25
     @offset             = 0
     @resourceUrl        = "https://data.cityofchicago.org/resource/"
@@ -20,7 +21,21 @@ class Incidents extends Backbone.Collection
     @offset += offsetAmount
 
   generateUrl: ->
-    "#{@resourceUrl}#{@sheet}.json?#{@generateRangeString()}"
+    urlString = "#{@resourceUrl}#{@sheet}.json?#{@generateRangeString()}"
+    if @categoryArray.length == 0
+      urlString
+    else
+      urlString += @generateCategoryQuery()
+
+  generateCategoryQuery: ->
+    lastIndex = @categoryArray.length - 1
+    queryString = "&$where="
+    _.each @categoryArray, (category, index) ->
+      if index < lastIndex
+        queryString += "primary_type='#{category}' OR "
+      else
+        queryString += "primary_type='#{category}'"
+    queryString
 
   generateRangeString: ->
     "$limit=#{@limit}&$offset=#{@offset}"
