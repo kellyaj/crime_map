@@ -164,20 +164,25 @@ body {
   vertical-align: middle;
 }
 
-.about {
-  margin: 0.6em 0 0 0;
+.below-map {
 }
 
-.about-button {
+.bottom-button {
   background: #fff;
+  border-radius: 4px;
   box-shadow: 5px 5px 5px #888888;
   color: #555;
   cursor: pointer;
+  display: inline-block;
   font-family: arial;
   font-size: 0.9em;
-  display: inline-block;
-  border-radius: 4px;
+  margin: 0 0.5em 0 0.5em;
   padding: 1em;
+}
+
+.about {
+  margin: 0.6em 0 0 0;
+  display: inline-block;
 }
 
 .about-container {
@@ -197,6 +202,21 @@ body {
   font-family: arial;
   font-size: 0.9em;
   line-height: 1.3em;
+  padding: 1em 0 0 0;
+}
+
+.categories-container {
+  background: #fff;
+  box-shadow: 5px 5px 5px #888888;
+  border-radius: 4px;
+  color: #555;
+  display: none;
+  font-size: 0.9em;
+  padding: 1em;
+  width: 20%;
+}
+
+.categories-text {
   padding: 1em 0 0 0;
 }
 

@@ -12,6 +12,8 @@ class MainView extends Backbone.View
     'change [data-id="incident-type"]'    : 'changeIncidentType'
     'change [data-id="time-of-day"]'      : 'changeTimeOfDay'
     'click [data-id="about-button"]'      : 'showAboutView'
+    'click [data-id="categories-button"]' : 'showCategoryList'
+    'click [data-id="close-categories"]'  : 'closeCategoryList'
     'click [data-id="filter-category"]'   : 'changeCategories'
     'click [data-id="deselect-all"]'      : 'deselectAllCategories'
 
@@ -72,6 +74,14 @@ class MainView extends Backbone.View
     @$el.find('[data-id="about-button"]').hide()
     @$el.find('[data-id="about-container"]').show()
     @$el.find('[data-id="about-container"]').html(new AboutView().render().$el)
+
+  showCategoryList: ->
+    @$el.find('[data-id="categories-button"]').hide()
+    @$el.find('[data-id="categories-container"]').css('display', 'inline-block')
+
+  closeCategoryList: ->
+    @$el.find('[data-id="categories-button"]').show()
+    @$el.find('[data-id="categories-container"]').hide()
 
   changeCategories: ->
     @incidents.categoryArray = []

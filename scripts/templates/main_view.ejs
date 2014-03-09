@@ -36,23 +36,29 @@
   </div>
   <div class="info-container" data-id="info-container"></div>
 </div>
-<div class="about">
-  <div class="about-button" data-id="about-button">About</div>
-  <div class="about-container" data-id="about-container"></div>
-</div>
-<div class="categories-container">
-  <h1>Filter By Category</h1>
-  <h3>Note: more categories will make the request take longer</h3>
-  <h3>For best results, select one or two categories</h3>
-  <div class="categories-list">
-    <ul>
-      <% for(var i=0; i < categories.length; i++) { %>
-        <li>
-        <label><input name="category-checkbox" data-id="category-checkbox" data-category-name="<%= categories[i].raw_name %>" type="checkbox"><%= categories[i].display_name %></label>
-        </li>
-      <% } %>
-      <li><button data-id="filter-category">Filter</button></li>
-      <li><button data-id="deselect-all">Deselect All</button></li>
-    </ul>
+<div class="below-map">
+  <div class="about">
+    <div class="about-button bottom-button" data-id="about-button">About</div>
+    <div class="about-container" data-id="about-container"></div>
+  </div>
+  <div class="categories-button bottom-button" data-id="categories-button">Filter Categories</div>
+  <div class="categories-container" data-id="categories-container">
+    <span class="icon-close" data-id="close-categories"></span>
+    <div class="categories-text">
+      <h1>Filter By Category</h1>
+      <h3>Note: more categories will make the request take longer</h3>
+      <h3>For best results, select one or two categories</h3>
+    </div>
+    <div class="categories-list">
+      <ul>
+        <% for(var i=0; i < categories.length; i++) { %>
+          <li>
+          <label><input name="category-checkbox" data-id="category-checkbox" data-category-name="<%= categories[i].raw_name %>" type="checkbox"><%= categories[i].display_name %></label>
+          </li>
+        <% } %>
+      </ul>
+      <button data-id="filter-category">Filter</button>
+      <button data-id="deselect-all">Deselect All</button>
+    </div>
   </div>
 </div>
