@@ -54,6 +54,27 @@ body {
   background-image: url('../images/squared_metal.png');
 }
 
+.main-title {
+  background: #fff;
+  box-shadow: 0 0 5px 0 #888888;
+  border-radius: 0 0 4px 0;
+  color: #cd2026;
+}
+
+.main-title h1 {
+  display: inline-block;
+  margin: 0 0 0 1em;
+  padding: 0.1em 0 0.1em 0;
+  font-size: 3.9em;
+}
+
+.main-title h4 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 0 0 0 1em;
+  padding: 0.1em 0 0.1em 0;
+}
+
 .arrest-made{
   color: #4040f6;
   display: inline-block;
