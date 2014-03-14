@@ -71,24 +71,31 @@ class MainView extends Backbone.View
     timeSelection = @$el.find('[data-id="time-of-day"] option:selected').data('time-of-day')
     @mapUtility.renderFiltered(new Incidents(@incidents.filterByTimeOfDay(timeSelection)))
 
+  categoriesButton: ->
+    @$el.find('[data-id="categories-button"]')
+
+  categoriesContainer: ->
+    @$el.find('[data-id="categories-container"]')
+
+  checkedCategories: ->
+    @$el.find('[name="category-checkbox"]:checked')
+
   showCategoryList: ->
-    @$el.find('[data-id="categories-button"]').hide()
-    @$el.find('[data-id="categories-container"]').css('display', 'inline-block')
+    @categoriesButton().hide()
+    @categoriesContainer().css('display', 'inline-block')
 
   closeCategoryList: ->
-    @$el.find('[data-id="categories-button"]').show()
-    @$el.find('[data-id="categories-container"]').hide()
+    @categoriesButton().show()
+    @categoriesContainer().hide()
 
   changeCategories: ->
     @incidents.categoryArray = []
-    checkedCategories = @$el.find('[name="category-checkbox"]:checked')
-    _.each checkedCategories, (category) =>
+    _.each @checkedCategories(), (category) =>
       @incidents.categoryArray.push(@$el.find(category).data('category-name'))
     @createIncidents()
 
   deselectAllCategories: ->
-    checkedCategories = @$el.find('[name="category-checkbox"]:checked')
-    _.each checkedCategories, (category) =>
+    _.each @checkedCategories(), (category) =>
       @$el.find(category).prop('checked', false)
 
 window.MainView = MainView
