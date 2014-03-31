@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         expand: true,
         flatten: true,
         cwd: 'scripts',
-        src: '**/*.coffee',
+        src: '**/**/*.coffee',
         dest: '.tmp/scripts',
         ext: '.js'
       },
@@ -48,6 +48,8 @@ module.exports = function(grunt) {
                                     'scripts/vendor/underscore.js',
                                     'scripts/vendor/backbone.js',
                                     '.tmp/scripts/templates.js',
+                                    '.tmp/scripts/chicago.js',
+                                    '.tmp/scripts/seattle.js',
                                     '.tmp/scripts/incidentCategories.js',
                                     '.tmp/scripts/locations.js',
                                     '.tmp/scripts/mapUtility.js',

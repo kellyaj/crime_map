@@ -8,6 +8,8 @@
     "scripts/vendor/jquery-1.10.2.min.js",
     "scripts/vendor/underscore.js",
     "scripts/vendor/backbone.js",
+    ".tmp/scripts/chicago.js",
+    ".tmp/scripts/seattle.js",
     ".tmp/scripts/incident.js",
     ".tmp/scripts/incidents.js",
     ".tmp/scripts/infoView.js",

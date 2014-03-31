@@ -15,6 +15,8 @@ class MainView extends Backbone.View
     'click [data-id="close-categories"]'  : 'closeCategoryList'
     'click [data-id="filter-category"]'   : 'changeCategories'
     'click [data-id="deselect-all"]'      : 'deselectAllCategories'
+    'click [data-id="select-chicago"]'    : 'renderChicagoMap'
+    'click [data-id="select-seattle"]'    : 'renderSeattleMap'
 
   render: ->
     @$el.html(@template({categories: @incidentCategories.displayList()}))
@@ -22,6 +24,16 @@ class MainView extends Backbone.View
     @renderLegendView()
     @createIncidents()
     @
+
+  renderChicagoMap: ->
+    @chicagoConfig ?= new ChicagoConfig(@google)
+    @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @chicagoConfig.mapOptions())
+    @mapUtility = new MapUtility(@map, @google)
+
+  renderSeattleMap: ->
+    @seattleConfig ?= new SeattleConfig(@google)
+    @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @seattleConfig.mapOptions())
+    @mapUtility = new MapUtility(@map, @google)
 
   renderLegendView: ->
     @$el.find('[data-id="legend-container"]').html(new LegendView().render().$el)
@@ -32,8 +44,9 @@ class MainView extends Backbone.View
     zoom: 11
 
   renderMap: ->
-    @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @defaultMapOptions())
-    @mapUtility = new MapUtility(@map, @google)
+    if !@map
+      @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @defaultMapOptions())
+      @mapUtility = new MapUtility(@map, @google)
 
   createIncidents: ->
     @displayLoading()
