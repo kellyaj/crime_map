@@ -2,29 +2,33 @@ class Incident extends Backbone.Model
 
   initialize: (modelData) ->
     @incidentCategories = new IncidentCategories()
-    @primaryType   = @get('primary_type')
     @setIncidentCategory()
     @setTimeOfDay()
     super(modelData)
 
+  setCityConfig: (cityConfig) ->
+    @dataFor = cityConfig.normalizedData()
+    @primaryType = @get(@dataFor['primary_type'])
+
   generateMarker: (google, map) ->
-    @mapCoordinate = new google.maps.LatLng(@get('latitude'), @get('longitude'))
+    @mapCoordinate = new google.maps.LatLng(@get(@dataFor['latitude']), @get(@dataFor['longitude']))
     @marker = new google.maps.Marker({
       icon: @getIcon(),
       position: @mapCoordinate,
       map: map,
-      title: @get('primary_description')
+      title: @get(@dataFor['primary_description'])
     })
     @marker
 
   getIcon: ->
     @incidentCategories.markerIcons()[@incidentCategory]
 
-  getTime: ->
+  getTime: =>
     splitTime = @get('date').split("T")[1].split(":")
     [splitTime[0], splitTime[1]].join(":")
 
-  formattedDate: ->
+  formattedDate: =>
+    console.log @dataFor
     dateSplit = @get('date').split("T")[0].split("-")
     time = @getTime()
     dateTime = "#{dateSplit[1]}/#{dateSplit[2]}/#{dateSplit[0]} #{time}"

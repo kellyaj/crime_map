@@ -53,8 +53,9 @@ class MainView extends Backbone.View
     @incidents.fetch
       reset: true
       success: (data) =>
+        @incidents.setCityConfig()
         @removeLoading()
-        @mapUtility.setUpIncidents(data)
+        @mapUtility.setUpIncidents(data, new ChicagoConfig())
 
   changeIncidentCount: ->
     @displayLoading()

@@ -4,6 +4,7 @@ class InfoView extends Backbone.View
     @google = options.google
     @incident = options.incident
     @map = options.map
+    @dataFor = options.cityConfig.normalizedData()
     @locations = new Locations()
     @setLocationCategory()
 
@@ -17,9 +18,9 @@ class InfoView extends Backbone.View
     @
 
   displayData: ->
-    'primary_type'         : @incident.get('primary_type')
-    'description'          : @incident.get('description')
-    'location_description' : @incident.get('location_description')
+    'primary_type'         : @incident.get(@dataFor['primary_type'])
+    'description'          : @incident.get(@dataFor['description'])
+    'location_description' : @incident.get(@dataFor['location_description'])
     'location_icon'        : @getLocationIcon()
     'arrest_status'        : @formatArrestData()
     'incident_date'        : @incident.formattedDate()
@@ -31,7 +32,7 @@ class InfoView extends Backbone.View
       @noArrestMadeHTML()
 
   setLocationCategory: ->
-    @locationCategory = @locations.getCategoryFor(@incident.get('location_description'))
+    @locationCategory = @locations.getCategoryFor(@incident.get(@dataFor['location_description']))
   arrestMadeHTML: ->
     '<div class="arrest-made"><span class="icon-cuffs info-view-icon"></span>ARREST MADE</div>'
 

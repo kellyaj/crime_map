@@ -9,6 +9,10 @@ class Incidents extends Backbone.Collection
     @incidentCategories = new IncidentCategories()
     super(modelData)
 
+  setCityConfig: (config) ->
+    _.each @models, (model) ->
+      model.setCityConfig(new ChicagoConfig())
+
   url: ->
     @generateUrl()
 

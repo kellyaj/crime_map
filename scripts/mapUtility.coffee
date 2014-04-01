@@ -15,7 +15,7 @@ class MapUtility
   addMarker: (marker) ->
     @markers.push(marker)
 
-  setUpIncidents: (data) =>
+  setUpIncidents: (data, cityConfig) =>
     @clearMarkers()
     _.each data.models, (incident) =>
       incident.generateMarker(@google, @map)
@@ -23,6 +23,7 @@ class MapUtility
         incident: incident
         map: @map
         google: @google
+        cityConfig: cityConfig
       @addMarker(incident.marker)
       @google.maps.event.addListener incident.marker, "click", ->
         $('[data-id="info-container"]').html(incidentView.render().$el)
