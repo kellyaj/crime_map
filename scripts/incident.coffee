@@ -8,7 +8,7 @@ class Incident extends Backbone.Model
     super(modelData)
 
   generateMarker: (google, map) ->
-    @mapCoordinate = new google.maps.LatLng(this.get('latitude'), this.get('longitude'))
+    @mapCoordinate = new google.maps.LatLng(@get('latitude'), @get('longitude'))
     @marker = new google.maps.Marker({
       icon: @getIcon(),
       position: @mapCoordinate,
