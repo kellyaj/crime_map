@@ -17,4 +17,10 @@ class ChicagoConfig
     'longitude': 'longitude'
     'arrest': 'arrest'
 
+  sheet: ->
+    "qnmj-8ku6"
+
+  resourceUrl: ->
+    "https://data.cityofchicago.org/resource/"
+
 window.ChicagoConfig = ChicagoConfig

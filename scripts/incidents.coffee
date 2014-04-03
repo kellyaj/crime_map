@@ -11,7 +11,9 @@ class Incidents extends Backbone.Collection
 
   setCityConfig: (config) ->
     _.each @models, (model) ->
-      model.setCityConfig(new ChicagoConfig())
+      model.setCityConfig(config)
+    @resourceUrl = config.resourceUrl()
+    @sheet = config.sheet()
 
   url: ->
     @generateUrl()

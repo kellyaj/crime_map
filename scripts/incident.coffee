@@ -28,7 +28,6 @@ class Incident extends Backbone.Model
     [splitTime[0], splitTime[1]].join(":")
 
   formattedDate: =>
-    console.log @dataFor
     dateSplit = @get('date').split("T")[0].split("-")
     time = @getTime()
     dateTime = "#{dateSplit[1]}/#{dateSplit[2]}/#{dateSplit[0]} #{time}"

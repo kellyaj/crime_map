@@ -22,18 +22,22 @@ class MainView extends Backbone.View
     @$el.html(@template({categories: @incidentCategories.displayList()}))
     @renderMap()
     @renderLegendView()
-    @createIncidents()
+    @createIncidents(new ChicagoConfig(@google))
     @
 
   renderChicagoMap: ->
     @chicagoConfig ?= new ChicagoConfig(@google)
+    @incidents.setCityConfig(@chicagoConfig)
     @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @chicagoConfig.mapOptions())
     @mapUtility = new MapUtility(@map, @google)
+    @createIncidents(@chicagoConfig)
 
   renderSeattleMap: ->
     @seattleConfig ?= new SeattleConfig(@google)
+    @incidents.setCityConfig(@seattleConfig)
     @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @seattleConfig.mapOptions())
     @mapUtility = new MapUtility(@map, @google)
+    @createIncidents(@seattleConfig)
 
   renderLegendView: ->
     @$el.find('[data-id="legend-container"]').html(new LegendView().render().$el)
@@ -48,12 +52,12 @@ class MainView extends Backbone.View
       @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @defaultMapOptions())
       @mapUtility = new MapUtility(@map, @google)
 
-  createIncidents: ->
+  createIncidents: (config) ->
     @displayLoading()
     @incidents.fetch
       reset: true
       success: (data) =>
-        @incidents.setCityConfig()
+        @incidents.setCityConfig(config)
         @removeLoading()
         @mapUtility.setUpIncidents(data, new ChicagoConfig())
 

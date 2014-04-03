@@ -1,7 +1,6 @@
 class SeattleConfig
 
   constructor: (@google) ->
-    console.log @google
 
   mapOptions: ->
     center: new @google.maps.LatLng(47.6097, -122.3331)
@@ -18,5 +17,10 @@ class SeattleConfig
     'longitude': 'longitude'
     'arrest': ''
 
+  sheet: ->
+    "7ais-f98f"
+
+  resourceUrl: ->
+    "https://data.seattle.gov/resource/"
 
 window.SeattleConfig = SeattleConfig
