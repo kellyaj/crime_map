@@ -59,7 +59,7 @@ class MainView extends Backbone.View
       success: (data) =>
         @incidents.setCityConfig(config)
         @removeLoading()
-        @mapUtility.setUpIncidents(data, new ChicagoConfig())
+        @mapUtility.setUpIncidents(data, config)
 
   changeIncidentCount: ->
     @displayLoading()
