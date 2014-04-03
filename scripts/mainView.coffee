@@ -22,19 +22,20 @@ class MainView extends Backbone.View
     @$el.html(@template({categories: @incidentCategories.displayList()}))
     @renderMap()
     @renderLegendView()
+    @chicagoConfig ?= new ChicagoConfig(@google)
+    @currentConfig = @chicagoConfig
     @createIncidents(new ChicagoConfig(@google))
     @
 
   renderChicagoMap: ->
-    @chicagoConfig ?= new ChicagoConfig(@google)
-    @incidents.setCityConfig(@chicagoConfig)
+    @currentConfig = @chicagoConfig
     @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @chicagoConfig.mapOptions())
     @mapUtility = new MapUtility(@map, @google)
     @createIncidents(@chicagoConfig)
 
   renderSeattleMap: ->
     @seattleConfig ?= new SeattleConfig(@google)
-    @incidents.setCityConfig(@seattleConfig)
+    @currentConfig = @seattleConfig
     @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @seattleConfig.mapOptions())
     @mapUtility = new MapUtility(@map, @google)
     @createIncidents(@seattleConfig)
@@ -53,6 +54,7 @@ class MainView extends Backbone.View
       @mapUtility = new MapUtility(@map, @google)
 
   createIncidents: (config) ->
+    @incidents.setCityConfig(config)
     @displayLoading()
     @incidents.fetch
       reset: true
@@ -65,11 +67,7 @@ class MainView extends Backbone.View
     @displayLoading()
     newLimit = @$el.find('[data-id="incident-count"] option:selected').data('count')
     @incidents.setLimit(newLimit)
-    @incidents.fetch
-      reset: true
-      success: =>
-        @removeLoading()
-        @mapUtility.renderFiltered(@incidents)
+    @createIncidents(@currentConfig)
 
   flashEl: ->
     @$el.find('[data-id="flash"]')
