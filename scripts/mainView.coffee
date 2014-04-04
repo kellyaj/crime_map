@@ -15,30 +15,27 @@ class MainView extends Backbone.View
     'click [data-id="close-categories"]'  : 'closeCategoryList'
     'click [data-id="filter-category"]'   : 'changeCategories'
     'click [data-id="deselect-all"]'      : 'deselectAllCategories'
-    'click [data-id="select-chicago"]'    : 'renderChicagoMap'
-    'click [data-id="select-seattle"]'    : 'renderSeattleMap'
+    'click [data-id="city-select"]'       : 'renderNewCity'
 
   render: ->
     @$el.html(@template({categories: @incidentCategories.displayList()}))
     @renderMap()
     @renderLegendView()
-    @chicagoConfig ?= new ChicagoConfig(@google)
-    @currentConfig = @chicagoConfig
-    @createIncidents(new ChicagoConfig(@google))
+    @currentConfig ?= new ChicagoConfig(@google)
+    @createIncidents(@currentConfig)
     @
 
-  renderChicagoMap: ->
-    @currentConfig = @chicagoConfig
-    @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @chicagoConfig.mapOptions())
+  renderNewCity: (event) ->
+    @currentConfig = @getConfigFor($(event.target).data('city'))
+    @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @currentConfig.mapOptions())
     @mapUtility = new MapUtility(@map, @google)
-    @createIncidents(@chicagoConfig)
+    @createIncidents(@currentConfig)
 
-  renderSeattleMap: ->
-    @seattleConfig ?= new SeattleConfig(@google)
-    @currentConfig = @seattleConfig
-    @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @seattleConfig.mapOptions())
-    @mapUtility = new MapUtility(@map, @google)
-    @createIncidents(@seattleConfig)
+  getConfigFor: (cityName) ->
+    if cityName == "chicago"
+      @chicagoConfig ?= new ChicagoConfig(@google)
+    else
+      @seattleConfig ?= new SeattleConfig(@google)
 
   renderLegendView: ->
     @$el.find('[data-id="legend-container"]').html(new LegendView().render().$el)
