@@ -2,12 +2,12 @@ class Incident extends Backbone.Model
 
   initialize: (modelData) ->
     @incidentCategories = new IncidentCategories()
-    @setIncidentCategory()
     super(modelData)
 
   setCityConfig: (cityConfig) ->
     @dataFor = cityConfig.normalizedData()
     @primaryType = @get(@dataFor['primary_type'])
+    @setIncidentCategory()
 
   generateMarker: (google, map) ->
     @setTimeOfDay()
