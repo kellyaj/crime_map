@@ -32,6 +32,9 @@ describe 'Incidents', ->
       },
     ]
     @collection = new Incidents(@fakeCrimes)
+    @collection.setCityConfig(new ChicagoConfig())
+    _.each @collection.models, (model) ->
+      model.setTimeOfDay()
 
   it 'defaults to a limit of 25', ->
     expect(@collection.limit).toEqual(25)
