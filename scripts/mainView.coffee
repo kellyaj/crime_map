@@ -19,16 +19,14 @@ class MainView extends Backbone.View
 
   render: ->
     @$el.html(@template({categories: @incidentCategories.displayList()}))
-    @renderMap()
-    @renderLegendView()
-    @currentConfig ?= new ChicagoConfig(@google)
+    @renderDefaultMap()
     @createIncidents(@currentConfig)
     @
 
   renderNewCity: (event) ->
     @currentConfig = @getConfigFor($(event.target).data('city'))
     @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @currentConfig.mapOptions())
-    @mapUtility = new MapUtility(@map, @google)
+    @mapUtility.map = @map
     @createIncidents(@currentConfig)
 
   getConfigFor: (cityName) ->
@@ -40,15 +38,11 @@ class MainView extends Backbone.View
   renderLegendView: ->
     @$el.find('[data-id="legend-container"]').html(new LegendView().render().$el)
 
-  defaultMapOptions: ->
-    center: new @google.maps.LatLng(41.833, -87.732)
-    minZoom: 10
-    zoom: 11
-
-  renderMap: ->
-    if !@map
-      @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @defaultMapOptions())
-      @mapUtility = new MapUtility(@map, @google)
+  renderDefaultMap: ->
+    @currentConfig ?= new ChicagoConfig(@google)
+    @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @currentConfig.mapOptions())
+    @mapUtility = new MapUtility(@map, @google)
+    @renderLegendView()
 
   createIncidents: (config) ->
     @incidents.setCityConfig(config)
