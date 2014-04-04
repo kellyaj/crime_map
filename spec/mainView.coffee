@@ -10,6 +10,7 @@ describe 'MainView', ->
         Map: ->
     @incidents =
       fetch: ->
+      setCityConfig: ->
     @view = new MainView
       google: @fakeGoogle
       incidents: @incidents
