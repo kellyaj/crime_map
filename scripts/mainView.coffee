@@ -30,6 +30,7 @@ class MainView extends Backbone.View
     @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @currentConfig.mapOptions())
     @mapUtility.map = @map
     @renderLegendView()
+    @incidents.categoryArray = []
     @createIncidents(@currentConfig)
 
   getConfigFor: (cityName) ->
