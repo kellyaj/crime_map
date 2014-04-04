@@ -36,8 +36,13 @@ describe 'InfoView', ->
         StreetViewPanorama: ->
         LatLng: ->
     @incidentModel = new Incident(fakeIncident)
-    @view = new InfoView({incident: @incidentModel, map: @fakeMap, google: @fakeGoogle})
-
+    chicagoConfig = new ChicagoConfig()
+    @incidentModel.setCityConfig(chicagoConfig)
+    @view = new InfoView
+      incident: @incidentModel
+      map: @fakeMap
+      google: @fakeGoogle
+      cityConfig: chicagoConfig
 
   it 'renders with basic incident info', ->
     @view.render()
