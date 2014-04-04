@@ -23,4 +23,7 @@ class SeattleConfig
   resourceUrl: ->
     "https://data.seattle.gov/resource/"
 
+  urlOptions: ->
+    "&$order=occurred_date_or_date_range_start%20desc"
+
 window.SeattleConfig = SeattleConfig

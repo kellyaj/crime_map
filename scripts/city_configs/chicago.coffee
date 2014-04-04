@@ -23,4 +23,7 @@ class ChicagoConfig
   resourceUrl: ->
     "https://data.cityofchicago.org/resource/"
 
+  urlOptions: ->
+    ""
+
 window.ChicagoConfig = ChicagoConfig

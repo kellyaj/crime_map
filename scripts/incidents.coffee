@@ -10,6 +10,7 @@ class Incidents extends Backbone.Collection
     super(modelData)
 
   setCityConfig: (config) ->
+    @config = config
     _.each @models, (model) ->
       model.setCityConfig(config)
     @resourceUrl = config.resourceUrl()
@@ -29,9 +30,10 @@ class Incidents extends Backbone.Collection
   generateUrl: ->
     urlString = "#{@resourceUrl}#{@sheet}.json?#{@generateRangeString()}"
     if @categoryArray.length == 0
-      urlString
+      urlString += @config.urlOptions()
     else
       urlString += @generateCategoryQuery()
+      urlString += @config.urlOptions()
 
   generateCategoryQuery: ->
     lastIndex = @categoryArray.length - 1
