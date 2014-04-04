@@ -33,7 +33,9 @@ describe 'Incident', ->
     @fakeGoogle = {maps: {}}
     @fakeGoogle.maps.LatLng = ->
     @fakeGoogle.maps.Marker = ->
+    @chicagoConfig = new ChicagoConfig()
     @incident = new Incident(@fakeIncident)
+    @incident.setCityConfig(@chicagoConfig)
     @_createIncident = (options) ->
       date = options.date || "2014-02-01T05:00:00"
       newIncident = new Incident({
@@ -41,6 +43,8 @@ describe 'Incident', ->
         "date"         : date
       })
       newIncident.setIncidentCategory()
+      newIncident.setCityConfig(@chicagoConfig)
+      newIncident.setTimeOfDay()
       newIncident
 
   it 'generates a google maps marker based on its information', ->
