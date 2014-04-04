@@ -91,4 +91,72 @@ class SeattleConfig
       "WEAPON"
     ]
 
+  categoryDisplayList: ->
+    list = []
+    _.each @masterList(), (categoryName) ->
+      displayObject =
+        raw_name: categoryName
+        display_name: categoryName.charAt(0).toUpperCase() + categoryName.slice(1).toLowerCase()
+      list.push displayObject
+    list
+
+  masterList: ->
+    [
+      "ANIMAL COMPLAINT",
+      "ASSAULT",
+      "BIAS INCIDENT",
+      "BIKE THEFT",
+      "Bike Theft",
+      "BURGLARY",
+      "BURGLARY-SECURE-PARKING-RES",
+      "CAR PROWL",
+      "Car Prowl",
+      "COUNTERFEIT",
+      "DISORDERLY CONDUCT",
+      "DISPUTE",
+      "DISTURBANCE",
+      "DUI",
+      "ELUDING",
+      "EMBEZZLE",
+      "EXTORTION",
+      "FALSE REPORT",
+      "FIREWORK",
+      "FORGERY",
+      "FRAUD",
+      "FRAUD AND FINANCIAL",
+      "GAMBLE",
+      "HOMICIDE",
+      "ILLEGAL DUMPING",
+      "[INC - CASE DC USE ONLY]",
+      "INJURY",
+      "LIQUOR VIOLATION",
+      "LOST PROPERTY",
+      "MAIL THEFT",
+      "NARCOTICS",
+      "OBSTRUCT",
+      "OTHER PROPERTY",
+      "Other Property",
+      "PROPERTY DAMAGE",
+      "PROSTITUTION",
+      "PUBLIC NUISANCE",
+      "PURSE SNATCH",
+      "Purse Snatch",
+      "RECKLESS BURNING",
+      "RECOVERED PROPERTY",
+      "ROBBERY",
+      "SHOPLIFTING",
+      "Shoplifting",
+      "STAY OUT OF AREA DRUGS",
+      "STAY OUT OF AREA PROSTITUTION",
+      "STOLEN PROPERTY",
+      "THEFT OF SERVICES",
+      "THREATS",
+      "TRAFFIC",
+      "TRESPASS",
+      "VEHICLE THEFT",
+      "VIOLATION OF COURT ORDER",
+      "WARRANT ARREST",
+      "WEAPON"
+     ]
+
 window.SeattleConfig = SeattleConfig

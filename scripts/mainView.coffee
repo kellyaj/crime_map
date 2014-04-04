@@ -18,15 +18,18 @@ class MainView extends Backbone.View
     'click [data-id="city-select"]'       : 'renderNewCity'
 
   render: ->
-    @$el.html(@template({categories: @incidentCategories.displayList()}))
+    @currentConfig ?= new ChicagoConfig(@google)
+    @$el.html(@template({categories: @currentConfig.categoryDisplayList()}))
     @renderDefaultMap()
     @createIncidents(@currentConfig)
     @
 
   renderNewCity: (event) ->
     @currentConfig = @getConfigFor($(event.target).data('city'))
+    @$el.html(@template({categories: @currentConfig.categoryDisplayList()}))
     @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @currentConfig.mapOptions())
     @mapUtility.map = @map
+    @renderLegendView()
     @createIncidents(@currentConfig)
 
   getConfigFor: (cityName) ->
@@ -39,7 +42,6 @@ class MainView extends Backbone.View
     @$el.find('[data-id="legend-container"]').html(new LegendView().render().$el)
 
   renderDefaultMap: ->
-    @currentConfig ?= new ChicagoConfig(@google)
     @map = new @google.maps.Map(@$el.find('[data-id="map-canvas"]')[0], @currentConfig.mapOptions())
     @mapUtility = new MapUtility(@map, @google)
     @renderLegendView()

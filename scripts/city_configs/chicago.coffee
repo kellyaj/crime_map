@@ -64,4 +64,45 @@ class ChicagoConfig
       "SEX OFFENSE"
     ]
 
+  categoryDisplayList: ->
+    list = []
+    _.each @masterList(), (categoryName) ->
+      displayObject =
+        raw_name: categoryName
+        display_name: categoryName.charAt(0).toUpperCase() + categoryName.slice(1).toLowerCase()
+      list.push displayObject
+    list
+
+  masterList: ->
+    [
+      "ASSAULT",
+      "ARSON",
+      "BATTERY",
+      "BURGLARY",
+      "CRIMINAL DAMAGE",
+      "CRIMINAL TRESPASS",
+      "CRIM SEXUAL ASSAULT",
+      "DECEPTIVE PRACTICE",
+      "GAMBLING",
+      "HOMICIDE",
+      "INTERFERENCE WITH PUBLIC OFFICE",
+      "INTIMIDATION",
+      "KIDNAPPING",
+      "LIQUOR LAW VIOLATION",
+      "MOTOR VEHICLE THEFT",
+      "NARCOTICS",
+      "NON-CRIMINAL",
+      "OBSCENITY",
+      "OFFENSE INVOLVING CHILDREN",
+      "OTHER NARCOTIC VIOLATION",
+      "OTHER OFFENSE",
+      "PROSTITUTION",
+      "PUBLIC PEACE VIOLATION",
+      "ROBBERY",
+      "SEX OFFENSE",
+      "STALKING",
+      "THEFT",
+      "WEAPONS VIOLATION"
+    ]
+
 window.ChicagoConfig = ChicagoConfig
