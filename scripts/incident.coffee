@@ -7,6 +7,7 @@ class Incident extends Backbone.Model
   setCityConfig: (cityConfig) ->
     @dataFor = cityConfig.normalizedData()
     @primaryType = @get(@dataFor['primary_type'])
+    @incidentCategories.config = cityConfig
     @setIncidentCategory()
 
   generateMarker: (google, map) ->

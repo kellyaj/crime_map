@@ -1,60 +1,16 @@
 class IncidentCategories
 
-  primary: ->
-    "OTHER": [
-        "ARSON",
-        "GAMBLING",
-        "INTERFERENCE WITH PUBLIC OFFICE",
-        "LIQUOR LAW VIOLATION",
-        "NARCOTICS",
-        "NON-CRIMINAL",
-        "OFFENSE INVOLVING CHILDREN",
-        "OTHER NARCOTIC VIOLATION",
-        "OTHER OFFENSE",
-        "PROSTITUTION",
-        "PUBLIC PEACE VIOLATION",
-        "WEAPONS VIOLATION"
-      ],
-    "PERSONAL": [
-      "DECEPTIVE PRACTICE",
-      "INTIMIDATION",
-      "OBSCENITY",
-      "STALKING"
-    ],
-    "PROPERTY": [
-      "BURGLARY",
-      "CRIMINAL DAMAGE",
-      "CRIMINAL TRESPASS",
-      "MOTOR VEHICLE THEFT",
-      "ROBBERY",
-      "THEFT"
-    ],
-    "VIOLENT": [
-      "ASSAULT",
-      "BATTERY",
-      "CRIM SEXUAL ASSAULT",
-      "HOMICIDE",
-      "KIDNAPPING",
-      "SEX OFFENSE"
-    ]
-
-  seattlePrimary: ->
-    "OTHER": [],
-    "PERSONAL": [],
-    "PROPERTY": [],
-    "VIOLENT": []
-
   isViolent: (selectedType) ->
-    _.contains @primary()["VIOLENT"], selectedType
+    _.contains @config.categories()["VIOLENT"], selectedType
 
   isProperty: (selectedType) ->
-    _.contains @primary()["PROPERTY"], selectedType
+    _.contains @config.categories()["PROPERTY"], selectedType
 
   isPersonal: (selectedType) ->
-    _.contains @primary()["PERSONAL"], selectedType
+    _.contains @config.categories()["PERSONAL"], selectedType
 
   isOther: (selectedType) ->
-    _.contains @primary()["OTHER"], selectedType
+    _.contains @config.categories()["OTHER"], selectedType
 
   markerIcons: ->
     "VIOLENT"  : "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
@@ -178,7 +134,7 @@ class IncidentCategories
       }
     ]
 
-  masterList: ->
+  chicagoMasterList: ->
     [
       "ASSAULT",
       "ARSON",
@@ -268,7 +224,6 @@ class IncidentCategories
       "WARRANT ARREST",
       "WEAPON"
       ]
-
 
 
 window.IncidentCategories = IncidentCategories

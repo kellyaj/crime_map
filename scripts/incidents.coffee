@@ -13,6 +13,7 @@ class Incidents extends Backbone.Collection
     @config = config
     _.each @models, (model) ->
       model.setCityConfig(config)
+    @incidentCategories.config = config
     @resourceUrl = config.resourceUrl()
     @sheet = config.sheet()
 
@@ -55,7 +56,7 @@ class Incidents extends Backbone.Collection
       @getModelsByType(selectedType)
 
   getModelsByType: (selectedType) ->
-    incidents = @incidentCategories.primary()[selectedType]
+    incidents = @config.categories()[selectedType]
     _.filter this.models, (model) ->
       _.contains incidents, model.get('primary_type')
 

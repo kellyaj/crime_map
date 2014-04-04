@@ -26,4 +26,42 @@ class ChicagoConfig
   urlOptions: ->
     ""
 
+  categories: ->
+    "OTHER": [
+        "ARSON",
+        "GAMBLING",
+        "INTERFERENCE WITH PUBLIC OFFICE",
+        "LIQUOR LAW VIOLATION",
+        "NARCOTICS",
+        "NON-CRIMINAL",
+        "OFFENSE INVOLVING CHILDREN",
+        "OTHER NARCOTIC VIOLATION",
+        "OTHER OFFENSE",
+        "PROSTITUTION",
+        "PUBLIC PEACE VIOLATION",
+        "WEAPONS VIOLATION"
+    ],
+    "PERSONAL": [
+      "DECEPTIVE PRACTICE",
+      "INTIMIDATION",
+      "OBSCENITY",
+      "STALKING"
+    ],
+    "PROPERTY": [
+      "BURGLARY",
+      "CRIMINAL DAMAGE",
+      "CRIMINAL TRESPASS",
+      "MOTOR VEHICLE THEFT",
+      "ROBBERY",
+      "THEFT"
+    ],
+    "VIOLENT": [
+      "ASSAULT",
+      "BATTERY",
+      "CRIM SEXUAL ASSAULT",
+      "HOMICIDE",
+      "KIDNAPPING",
+      "SEX OFFENSE"
+    ]
+
 window.ChicagoConfig = ChicagoConfig

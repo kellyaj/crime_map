@@ -42,8 +42,8 @@ describe 'Incident', ->
         "primary_type" : options.primaryType,
         "date"         : date
       })
-      newIncident.setIncidentCategory()
       newIncident.setCityConfig(@chicagoConfig)
+      newIncident.setIncidentCategory()
       newIncident.setTimeOfDay()
       newIncident
 

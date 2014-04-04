@@ -2,12 +2,13 @@ describe 'IncidentCategories', ->
 
   beforeEach ->
     @incidentCategories = new IncidentCategories()
+    @incidentCategories.config = new ChicagoConfig()
 
-  it 'has each incident type categorized', ->
-    expect(@incidentCategories.primary()["OTHER"].length).toBe(12)
-    expect(@incidentCategories.primary()["PERSONAL"].length).toBe(4)
-    expect(@incidentCategories.primary()["VIOLENT"].length).toBe(6)
-    expect(@incidentCategories.primary()["PROPERTY"].length).toBe(6)
+  it 'has each incident type categorized via the config', ->
+    expect(@incidentCategories.config.categories()["OTHER"].length).toBe(12)
+    expect(@incidentCategories.config.categories()["PERSONAL"].length).toBe(4)
+    expect(@incidentCategories.config.categories()["VIOLENT"].length).toBe(6)
+    expect(@incidentCategories.config.categories()["PROPERTY"].length).toBe(6)
 
   it "can determine if an incident is violent", ->
     expect(@incidentCategories.isViolent("THEFT")).toBeFalsy()
