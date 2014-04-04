@@ -34,10 +34,11 @@ class MainView extends Backbone.View
     @createIncidents(@currentConfig)
 
   getConfigFor: (cityName) ->
-    if cityName == "chicago"
-      @chicagoConfig ?= new ChicagoConfig(@google)
-    else
-      @seattleConfig ?= new SeattleConfig(@google)
+    switch cityName
+      when "chicago" then @chicagoConfig ?= new ChicagoConfig(@google)
+      when "seattle" then @seattleConfig ?= new SeattleConfig(@google)
+      when "sanfrancisco" then @sanfranciscoConfig ?= new SanFranciscoConfig(@google)
+
 
   renderLegendView: ->
     @$el.find('[data-id="legend-container"]').html(new LegendView().render().$el)

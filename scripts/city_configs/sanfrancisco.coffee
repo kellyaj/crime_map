@@ -3,9 +3,9 @@ class SanFranciscoConfig
   constructor: (@google) ->
 
   mapOptions: ->
-    center: new @google.maps.LatLng(47.6097, -122.3331)
+    center: new @google.maps.LatLng(37.7833, -122.4167)
     minZoom: 10
-    zoom: 11
+    zoom: 10
 
   normalizedData: ->
     'primary_type': ''
@@ -22,5 +22,9 @@ class SanFranciscoConfig
 
   resourceUrl: ->
     "https://data.sfgov.org/resource/"
+
+  categoryDisplayList: ->
+    [{}]
+
 
 window.SanFranciscoConfig = SanFranciscoConfig

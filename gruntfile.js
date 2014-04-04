@@ -50,6 +50,7 @@ module.exports = function(grunt) {
                                     '.tmp/scripts/templates.js',
                                     '.tmp/scripts/chicago.js',
                                     '.tmp/scripts/seattle.js',
+                                    '.tmp/scripts/sanfrancisco.js',
                                     '.tmp/scripts/incidentCategories.js',
                                     '.tmp/scripts/locations.js',
                                     '.tmp/scripts/mapUtility.js',

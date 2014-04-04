@@ -10,6 +10,7 @@
     "scripts/vendor/backbone.js",
     ".tmp/scripts/chicago.js",
     ".tmp/scripts/seattle.js",
+    ".tmp/scripts/sanfrancisco.js",
     ".tmp/scripts/incident.js",
     ".tmp/scripts/incidents.js",
     ".tmp/scripts/infoView.js",
