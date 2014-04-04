@@ -108,7 +108,7 @@ class MainView extends Backbone.View
     @incidents.categoryArray = []
     _.each @checkedCategories(), (category) =>
       @incidents.categoryArray.push(@$el.find(category).data('category-name'))
-    @createIncidents()
+    @createIncidents(@currentConfig)
 
   deselectAllCategories: ->
     _.each @checkedCategories(), (category) =>
