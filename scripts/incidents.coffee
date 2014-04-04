@@ -39,11 +39,12 @@ class Incidents extends Backbone.Collection
   generateCategoryQuery: ->
     lastIndex = @categoryArray.length - 1
     queryString = "&$where="
-    _.each @categoryArray, (category, index) ->
+    _.each @categoryArray, (category, index) =>
+      normalizedPrimary = @config.normalizedData()['primary_type']
       if index < lastIndex
-        queryString += "primary_type='#{category}' OR "
+        queryString += "#{normalizedPrimary}='#{category}' OR "
       else
-        queryString += "primary_type='#{category}'"
+        queryString += "#{normalizedPrimary}='#{category}'"
     queryString
 
   generateRangeString: ->
