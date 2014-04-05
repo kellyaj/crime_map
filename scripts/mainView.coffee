@@ -39,7 +39,6 @@ class MainView extends Backbone.View
       when "seattle" then @seattleConfig ?= new SeattleConfig(@google)
       when "sanfrancisco" then @sanfranciscoConfig ?= new SanFranciscoConfig(@google)
 
-
   renderLegendView: ->
     @$el.find('[data-id="legend-container"]').html(new LegendView().render().$el)
 
