@@ -50,3 +50,10 @@ describe 'MainView', ->
 
     expect(@view.currentConfig.sheet()).toBe(chicagoSheet)
     expect(@view.incidents.config.sheet()).toBe(chicagoSheet)
+
+  it 'fetches incidents on new city render', ->
+    @view.render()
+
+    @view.$el.find('[data-city="seattle"]').click()
+
+    expect(@incidentSpy).toHaveBeenCalled()
