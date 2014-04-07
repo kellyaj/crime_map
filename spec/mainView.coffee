@@ -10,7 +10,8 @@ describe 'MainView', ->
         Map: ->
     @incidents =
       fetch: ->
-      setCityConfig: ->
+      setCityConfig: (config) ->
+        @config = config
     @view = new MainView
       google: @fakeGoogle
       incidents: @incidents
@@ -34,3 +35,12 @@ describe 'MainView', ->
     @view.render()
 
     expect(mapSpy).toHaveBeenCalled()
+
+  it 'switches city config when other city is clicked', ->
+    seattleSheet = "7ais-f98f"
+    @view.render()
+
+    @view.$el.find('[data-city="seattle"]').click()
+
+    expect(@view.currentConfig.sheet()).toBe(seattleSheet)
+    expect(@view.incidents.config.sheet()).toBe(seattleSheet)
