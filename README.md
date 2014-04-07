@@ -1,3 +1,3 @@
-crime_map
+[MapGruff](http://mapgruff.com)
 =========
-Using Chicago Open Data and the Google maps API to display a map of recent incidents. [MapGruff](http://mapgruff.com)
+Using Open Data and the Google maps API to display a map of recent incidents in Chicago and Seattle. 
