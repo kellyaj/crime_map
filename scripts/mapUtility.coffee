@@ -16,6 +16,7 @@ class MapUtility
     @markers.push(marker)
 
   setUpIncidents: (data, cityConfig) =>
+    @currentConfig = cityConfig
     @clearMarkers()
     _.each data.models, (incident) =>
       incident.generateMarker(@google, @map)
@@ -23,7 +24,7 @@ class MapUtility
         incident: incident
         map: @map
         google: @google
-        cityConfig: cityConfig
+        cityConfig: @currentConfig
       @addMarker(incident.marker)
       @google.maps.event.addListener incident.marker, "click", ->
         $('[data-id="info-container"]').html(incidentView.render().$el)
@@ -31,6 +32,6 @@ class MapUtility
   renderFiltered: (incidentCollection) ->
     incidentType = $('[data-id="incident-type"] option:selected').data('incident-type')
     filteredCollection = new Incidents(incidentCollection.filterByType(incidentType))
-    @setUpIncidents(filteredCollection)
+    @setUpIncidents(filteredCollection, @currentConfig)
 
 window.MapUtility = MapUtility
