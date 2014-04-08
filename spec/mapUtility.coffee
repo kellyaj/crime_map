@@ -20,4 +20,3 @@ describe 'MainView', ->
     @mapUtility.setUpIncidents(@collection, new ChicagoConfig())
 
     expect(markerSpy).toHaveBeenCalled()
-
