@@ -36,7 +36,7 @@ describe 'MainView', ->
 
     expect(mapSpy).toHaveBeenCalled()
 
-  it 'switches city config when other city is clicked', ->
+  it 'switches city config based on which city is clicked', ->
     seattleSheet = "7ais-f98f"
     chicagoSheet = "qnmj-8ku6"
     @view.render()
@@ -57,3 +57,14 @@ describe 'MainView', ->
     @view.$el.find('[data-city="seattle"]').click()
 
     expect(@incidentSpy).toHaveBeenCalled()
+
+  it 'resets the incidents array on new city render', ->
+    @view.render()
+
+    @view.incidents.categoryArray = ["some", "data"]
+
+    @view.$el.find('[data-city="seattle"]').click()
+
+    expect(@view.incidents.categoryArray).toEqual([])
+
+
