@@ -74,6 +74,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('default', ['jst']);
-  grunt.registerTask('compile', ['clean', 'jst', 'coffee']);
+  grunt.registerTask('compile', ['clean', 'jst', 'coffee', 'uglify']);
   grunt.registerTask('build', ['clean', 'jst', 'coffee', 'uglify']);
 }
