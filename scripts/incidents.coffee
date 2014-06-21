@@ -5,7 +5,7 @@ class Incidents extends Backbone.Collection
     @limit              = 25
     @offset             = 0
     @resourceUrl        = "https://data.cityofchicago.org/resource/"
-    @sheet              = "qnmj-8ku6"
+    @sheet              = "ijzp-q8t2"
     @incidentCategories = new IncidentCategories()
     super(modelData)
 
