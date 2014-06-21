@@ -18,7 +18,7 @@ class ChicagoConfig
     'arrest': 'arrest'
 
   sheet: ->
-    "qnmj-8ku6"
+    "ijzp-q8t2"
 
   resourceUrl: ->
     "https://data.cityofchicago.org/resource/"
