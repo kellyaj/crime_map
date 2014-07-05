@@ -2,7 +2,7 @@ class Incidents extends Backbone.Collection
 
   initialize: (modelData)->
     @categoryArray      = []
-    @limit              = 25
+    @limit              = 200
     @offset             = 0
     @resourceUrl        = "https://data.cityofchicago.org/resource/"
     @sheet              = "ijzp-q8t2"

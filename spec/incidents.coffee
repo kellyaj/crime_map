@@ -36,8 +36,8 @@ describe 'Incidents', ->
     _.each @collection.models, (model) ->
       model.setTimeOfDay()
 
-  it 'defaults to a limit of 25', ->
-    expect(@collection.limit).toEqual(25)
+  it 'defaults to a limit of 200', ->
+    expect(@collection.limit).toEqual(200)
 
   it 'can have the limit set', ->
     @collection.setLimit(50)
@@ -62,13 +62,13 @@ describe 'Incidents', ->
     expect(@collection.generateUrl()).toEqual(expectedUrl)
 
   it 'does not append a where query if categoryArray is empty', ->
-    expectedUrl = "https://data.cityofchicago.org/resource/ijzp-q8t2.json?$limit=25&$offset=0"
+    expectedUrl = "https://data.cityofchicago.org/resource/ijzp-q8t2.json?$limit=200&$offset=0"
     expect(@collection.categoryArray.length).toEqual(0)
     expect(@collection.generateUrl()).toEqual(expectedUrl)
 
   it 'generates a url with a where query based on the categoryArray', ->
     @collection.categoryArray = ["ROBBERY", "THEFT"]
-    expectedUrl = "https://data.cityofchicago.org/resource/ijzp-q8t2.json?$limit=25&$offset=0&$where=primary_type='ROBBERY' OR primary_type='THEFT'"
+    expectedUrl = "https://data.cityofchicago.org/resource/ijzp-q8t2.json?$limit=200&$offset=0&$where=primary_type='ROBBERY' OR primary_type='THEFT'"
     expect(@collection.generateUrl()).toEqual(expectedUrl)
 
   it 'returns all models when the incidentType is ALL', ->
