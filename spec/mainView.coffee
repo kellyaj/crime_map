@@ -38,7 +38,7 @@ describe 'MainView', ->
 
   it 'switches city config based on which city is clicked', ->
     seattleSheet = "7ais-f98f"
-    chicagoSheet = "qnmj-8ku6"
+    chicagoSheet = "ijzp-q8t2"
     @view.render()
 
     @view.$el.find('[data-city="seattle"]').click()
